@@ -16,4 +16,8 @@ public class AtualizarPessoas {
 		cliente.setCpf(cpf);
 		cliente.setEmail(email);
 	}
+	
+	public void foi {
+		
+	}
 }
