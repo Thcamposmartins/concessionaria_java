@@ -16,9 +16,5 @@ public class Picape extends Veiculo {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
-    
-    public void testando() {
-    	
-    }
 
 }
