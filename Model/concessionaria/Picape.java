@@ -2,7 +2,7 @@ package concessionaria;
 
 public class Picape extends Veiculo {
 
-    Double preco;
+    double preco;
 
     public Picape(String nome, String cor, double preco) {
         super(nome, cor);
@@ -15,6 +15,10 @@ public class Picape extends Veiculo {
 
     public void setPreco(Double preco) {
         this.preco = preco;
+    }
+    
+    public void testando() {
+    	
     }
 
 }
