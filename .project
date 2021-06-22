@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>concessionaria_java</name>
+=======
+	<name>concessionaria</name>
+>>>>>>> 33b3cda74d5c1a0c438259806c7966dd8657972c
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
+<<<<<<< HEAD
 	</buildSpec>
 	<natures>
+=======
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+>>>>>>> 33b3cda74d5c1a0c438259806c7966dd8657972c
 	</natures>
 </projectDescription>

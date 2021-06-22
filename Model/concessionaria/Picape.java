@@ -1,15 +1,15 @@
-package concessionaria.Model.concessionaria;
+package concessionaria;
 
 public class Picape extends Veiculo {
 
     Double preco;
 
-    public Picape(String nome, String cor, Double preco) {
+    public Picape(String nome, String cor, double preco) {
         super(nome, cor);
         this.setPreco(preco);
     }
 
-    public Double getPreco() {
+    public double getPreco() {
         return preco;
     }
 
