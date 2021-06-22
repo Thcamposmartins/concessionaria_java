@@ -1,7 +1,5 @@
 package concessionaria;
 
-import jdk.internal.jshell.tool.resources.version;
-
 public class ListarVeiculos {
 
     public ListarVeiculos() {

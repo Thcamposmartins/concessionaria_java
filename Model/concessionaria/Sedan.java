@@ -1,10 +1,10 @@
-package concessionaria.Model.concessionaria;
+package concessionaria;
 
 public class Sedan extends Veiculo {
 
     Double preco;
 
-    public Picape(String nome, String cor, Double preco) {
+    public Sedan(String nome, String cor, Double preco) {
         super(nome, cor);
         this.setPreco(preco);
     }

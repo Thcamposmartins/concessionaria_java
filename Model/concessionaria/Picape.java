@@ -1,4 +1,4 @@
-package concessionaria.Model.concessionaria;
+package concessionaria;
 
 public class Picape extends Veiculo {
 
