@@ -4,8 +4,8 @@ public class Sedan extends Veiculo {
 
     Double preco;
 
-    public Sedan(String nome, String cor, Double preco) {
-        super(nome, cor);
+    public Sedan(String nome, String cor, Double preco, int qtd) {
+        super(nome, cor, qtd);
         this.setPreco(preco);
     }
 

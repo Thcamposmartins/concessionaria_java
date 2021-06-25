@@ -4,10 +4,12 @@ public class Veiculo {
 
     private String nome;
     private String cor;
+    private int qtd;
 
-    public Veiculo(String nome, String cor) {
+    public Veiculo(String nome, String cor, int qtd) {
         this.setNome(nome);
         this.setCor(cor);
+        this.setQtd(qtd);
     }
 
     public String getNome() {
@@ -25,5 +27,13 @@ public class Veiculo {
     public void setCor(String cor) {
         this.cor = cor;
     }
+
+	public int getQtd() {
+		return qtd;
+	}
+
+	public void setQtd(int qtd) {
+		this.qtd = qtd;
+	}
  
 }

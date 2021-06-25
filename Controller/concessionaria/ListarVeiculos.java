@@ -5,49 +5,57 @@ public class ListarVeiculos {
     public ListarVeiculos() {
 
     }
-
-    public void listarPicape(Picape picape) {
-        picape.getNome();
-		picape.getCor();
-		picape.getPreco();
-		
-		System.out.println(
+    
+   	public void ListarVeiculosEstoque(Picape picape, SUV suv, Sedan sedan,Hatch hatch ) {
+		if (picape.getQtd()!=0) {System.out.println(
+				"\nPicape"+
 				"\nNome: "+ picape.getNome() +
 				"\nCor: "+ picape.getCor() +
-				"\nPreco: "+ picape.getPreco());
-    }
-
-    public void listarSUV(SUV suv) {
-        suv.getNome();
-		suv.getCor();
-		suv.getPreco();
-		
-		System.out.println(
+				"\nPreco: "+ picape.getPreco()+
+				"\nQuantidade "+ picape.getQtd());
+		};
+		if (suv.getQtd()!=0) {System.out.println(		
+				"\n\nSUV"+		
 				"\nNome: "+ suv.getNome() +
 				"\nCor: "+ suv.getCor() +
-				"\nPreco: "+ suv.getPreco());
-    }
-
-    public void listarSedan(Sedan sedan) {
-        sedan.getNome();
-		sedan.getCor();
-		sedan.getPreco();
-		
-		System.out.println(
+				"\nPreco: "+ suv.getPreco()+
+				"\nQuantidade "+ suv.getQtd());
+		};
+		if (sedan.getQtd()!=0) {System.out.println(		
+				"\n\nSedan"+	
 				"\nNome: "+ sedan.getNome() +
 				"\nCor: "+ sedan.getCor() +
-				"\nPreco: "+ sedan.getPreco());
-    }
-
-    public void listarHatch(Hatch hatch) {
-        hatch.getNome();
-		hatch.getCor();
-		hatch.getPreco();
-		
-		System.out.println(
+				"\nPreco: "+ sedan.getPreco()+
+				"\nQuantidade "+ sedan.getQtd());
+		};
+		if (hatch.getQtd()!=0) {System.out.println(
+				"\n\nHatch"+	
 				"\nNome: "+ hatch.getNome() +
 				"\nCor: "+ hatch.getCor() +
-				"\nPreco: "+ hatch.getPreco());
+				"\nPreco: "+ hatch.getPreco()				+
+				"\nQuantidade "+ hatch.getQtd());
+		};
     }
-    
+   	public void ListarVeiculosTodos(Picape picape, SUV suv, Sedan sedan,Hatch hatch ) {
+		
+		System.out.println(
+				"\nPicape"+
+				"\nNome: "+ picape.getNome() +
+				"\nCor: "+ picape.getCor() +
+				"\nPreco: "+ picape.getPreco()+
+				"\n\nSUV"+		
+				"\nNome: "+ suv.getNome() +
+				"\nCor: "+ suv.getCor() +
+				"\nPreco: "+ suv.getPreco()+
+				"\n\nSedan"+	
+				"\nNome: "+ sedan.getNome() +
+				"\nCor: "+ sedan.getCor() +
+				"\nPreco: "+ sedan.getPreco()+
+				"\n\nHatch"+	
+				"\nNome: "+ hatch.getNome() +
+				"\nCor: "+ hatch.getCor() +
+				"\nPreco: "+ hatch.getPreco()
+		);
+    }
+
 }

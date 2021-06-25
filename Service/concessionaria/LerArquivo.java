@@ -1,10 +1,13 @@
 package concessionaria;
 
 import java.io.BufferedReader;
+import java.util.List;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class LerArquivo {
+
+	List<Object> object = (List<Object>) new Object();
 	
 	public LerArquivo(String path) throws IOException {
 		BufferedReader buffRead = new BufferedReader(new FileReader(path));
@@ -16,7 +19,9 @@ public class LerArquivo {
 			} else
 				break;
 			linha = buffRead.readLine();
+			object.add(0, linha);			
 		}
+		System.out.println(object);
 		buffRead.close();
 	}
 

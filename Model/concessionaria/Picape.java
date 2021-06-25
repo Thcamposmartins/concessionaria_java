@@ -4,8 +4,8 @@ public class Picape extends Veiculo {
 
     double preco;
 
-    public Picape(String nome, String cor, double preco) {
-        super(nome, cor);
+    public Picape(String nome, String cor, double preco, int qtd) {
+        super(nome, cor, qtd);
         this.setPreco(preco);
     }
 

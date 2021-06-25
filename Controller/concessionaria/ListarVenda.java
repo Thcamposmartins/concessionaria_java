@@ -7,10 +7,6 @@ public class ListarVenda {
     }
 
     public void listarVendas(Venda venda) {
-        venda.getQuantidadeDeVendas();
-		venda.getNomeVeiculoVendido();
-		venda.getCorVeiculoVendido();
-        venda.getPrecoVeiculoVendido();
 		
 		System.out.println(
 				"\nQuantidade de vendas: " + venda.getQuantidadeDeVendas() +

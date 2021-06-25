@@ -17,7 +17,4 @@ public class AtualizarPessoas {
 		cliente.setEmail(email);
 	}
 	
-	public void foi {
-		
-	}
 }
