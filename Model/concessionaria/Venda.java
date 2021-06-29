@@ -1,17 +1,16 @@
 package concessionaria;
 
 public class Venda {
-    
     private Integer quantidadeDeVendas;
     private String nomeVeiculoVendido;
     private String corVeiculoVendido;
     private Double precoVeiculoVendido;
 
     public Venda(Integer quantidadeDeVendas, String nomeVeiculoVendido, String corVeiculoVendido, Double precoVeiculoVendido) {
-        this.quantidadeDeVendas = quantidadeDeVendas;
-        this.nomeVeiculoVendido = nomeVeiculoVendido;
-        this.corVeiculoVendido = corVeiculoVendido;
-        this.precoVeiculoVendido = precoVeiculoVendido;
+        this.setQuantidadeDeVendas(quantidadeDeVendas);
+        this.setNomeVeiculoVendido(nomeVeiculoVendido);
+        this.setCorVeiculoVendido(corVeiculoVendido);
+        this.setPrecoVeiculoVendido(precoVeiculoVendido);
     }
 
     public Integer getQuantidadeDeVendas() {

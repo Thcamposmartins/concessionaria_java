@@ -1,8 +1,7 @@
 package concessionaria;
 
 public class Sedan extends Veiculo {
-
-    Double preco;
+    private Double preco;
 
     public Sedan(String nome, String cor, Double preco, int qtd) {
         super(nome, cor, qtd);

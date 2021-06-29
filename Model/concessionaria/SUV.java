@@ -1,8 +1,7 @@
 package concessionaria;
 
 public class SUV extends Veiculo {
-    
-    Double preco;
+    private Double preco;
 
     public SUV(String nome, String cor, Double preco, int qtd) {
         super(nome, cor, qtd);

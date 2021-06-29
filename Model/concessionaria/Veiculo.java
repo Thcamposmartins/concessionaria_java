@@ -1,7 +1,6 @@
 package concessionaria;
 
 public class Veiculo {
-
     private String nome;
     private String cor;
     private int qtd;
