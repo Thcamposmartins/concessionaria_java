@@ -6,14 +6,15 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int op = 0;
-		//case 1 cadastrar/ editar um produto
-		//case 2 cadastrar/ editar cliente
-		//case 3 cadastrar uma venda 
-		//case 4 gerar relatorios
+		System.out.println("\n 1 - Cadastrar / editar um poduto. ");
+		System.out.println("\n 2 - Cadastrar / editar um cliente. ");
+		System.out.println("\n 3 - Cadastrar uma venda. ");
+		System.out.println("\n 4 - Relatorios ");
 		
 		switch(op) {
 		
 		case 1:
+			
 			break;
 		case 2:
 			break;
@@ -23,7 +24,7 @@ public class Main {
 			break;
 	
 			
-		default: System.out.println("\n Oção inválida! ");
+		default: System.out.println("\n Opcao invalida! ");
 		}
 		
 	}
