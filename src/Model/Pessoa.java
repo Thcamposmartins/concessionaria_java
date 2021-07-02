@@ -5,10 +5,15 @@ public class Pessoa {
 	private int idade;
 	private String nome;
 	
+	public Pessoa() {
+		
+	}
+	
 	public Pessoa(int id, String nome) {
 		this.setId(id);
 		this.setNome(nome);
 	}
+
 
 	public int getId() {
 		return id;
