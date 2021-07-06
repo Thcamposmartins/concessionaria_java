@@ -4,20 +4,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
-
-import Model.Cliente;
+import Model.Pessoa;
 
 public class EscreverArquivo {
 
-	public EscreverArquivo(String arquivo, ArrayList<Cliente> listaCliente) throws IOException {
+	public EscreverArquivo(String arquivo, ArrayList<Pessoa> listaPessoas) throws IOException {
 		
 		try {
 		FileWriter fw = new FileWriter(arquivo+".txt");	
 		PrintWriter pw = new PrintWriter(fw);
 		
-			for (Object  obj : listaCliente) {
+			for (Object  obj : listaPessoas) {
 				pw.println(obj);				
 			}
 			pw.flush();

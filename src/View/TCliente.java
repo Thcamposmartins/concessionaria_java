@@ -11,20 +11,18 @@ import Services.EscreverArquivo;
 
 public class TCliente extends javax.swing.JInternalFrame {
 
-    Cliente cliente;
     EscreverArquivo saveDataCliente;
     int acao;
     ArrayList<Object> listaCliente;
     Cliente clienteModel = new Cliente();
     Pessoas pessoa = new Pessoas();
+    ArrayList<Cliente> clientes = new ArrayList<>();
 
     public TCliente() {
         initComponents();
-        try {
-            cliente = new Cliente();
+        try {       
             acao = 0;
             listaCliente = new ArrayList<>();
-            ArrayList<Cliente> clientes = new ArrayList<>();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro de inicialização: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -151,33 +149,7 @@ public class TCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jTbClientes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
 
-            },
-            new String [] {
-                "ID", "Nome", "E-mail", "Telefone", "CPF"
-            }
-        ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
         jTbClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTbClientesMouseClicked(evt);
@@ -461,11 +433,12 @@ public class TCliente extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private boolean preencherCliente() throws Exception {
-        cliente.setId(Integer.parseInt(jLID.getText()));
-        cliente.setNome(jTNome.getText());
-        cliente.setEmail(jTEmail.getText());
-        cliente.setTelefone(jFTTelefone.getText());
-        cliente.setCpf(jFTCPF.getText());
+    	clienteModel.setId(Integer.parseInt(jLID.getText()));
+    	clienteModel.setNome(jTNome.getText());
+    	clienteModel.setEmail(jTEmail.getText());
+    	clienteModel.setTelefone(jFTTelefone.getText());
+    	clienteModel.setCpf(jFTCPF.getText());
+    	clientes.add(acao, clienteModel);
 
         return true;
     }
@@ -477,32 +450,6 @@ public class TCliente extends javax.swing.JInternalFrame {
         jTEmail.setText(null);
         jFTTelefone.setText(null);
         jFTCPF.setText(null);
-        //limpa tabela
-        jTbClientes.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{},
-                new String[]{
-                    "ID", "Nome", "E-mail", "Telefone", "CPF"
-                }
-        ) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 1L;
-			Class[] types = new Class[]{
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean[]{
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
-            }
-        });
 
     }
 

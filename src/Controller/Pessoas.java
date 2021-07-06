@@ -1,24 +1,27 @@
 package Controller;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import Model.Cliente;
-import Model.Funcionario;
+import Model.Pessoa;
 
 public class Pessoas {
 	
+	ArrayList<Pessoa> pessoasList;
 
 	public Pessoas() {
 		
+		pessoasList = new ArrayList();		
 	}
-	public Cliente CadastrarCliente(int id, String nome, String cpf, String email){
-		Cliente cliente = new Cliente(id, nome, cpf, email);		
+	
+	/*public Pessoa CadastrarCliente(int id, String nome, String cpf, String email){
+		
+		Cliente cliente = new Cliente(id, nome, cpf, email);	
+		
 		return cliente;
 	}
 	
 		 public boolean incluir(Cliente cliente) throws Exception {
+			 
 			 Cliente cl = new Cliente();
 			 
 			 cl.setId(cliente.getId());
@@ -28,12 +31,14 @@ public class Pessoas {
 			 cl.setCpf(cliente.getCpf());			       
 			       return true;
 			    }
+	   
 
-	    public void excluir(int id) throws Exception {
+		public void excluir(int id) throws Exception {
 	    	//implementar excluir
 	    }
 
 	    public boolean editar(Cliente cliente) throws Exception {
+	    	
 	    	 Cliente cl = new Cliente();
 			 
 			 cl.setId(cliente.getId());
@@ -45,7 +50,9 @@ public class Pessoas {
 	    }
 
 	    public static ArrayList<Object> pesquisar(Cliente clientes) throws Exception {
-	    	ArrayList<Object> c = null ;
+	    	
+	    	ArrayList<Object> c = null;
+	    	
 	    	c.add(clientes.getId());
 	    	c.add(clientes.getEmail());
 	    	c.add(clientes.getNome());
@@ -53,7 +60,19 @@ public class Pessoas {
 	    	c.add(clientes.getCpf());
 
 	        return c;
-	    }
+	    }*/
+	    //NOVO TESTE
+	    public ArrayList<Pessoa> getClienteList() {
+			return pessoasList;
+		}
 
+		public void setClienteList(ArrayList<Pessoa> pessoasList) {
+			this.pessoasList = pessoasList;
+		}
+
+		public void addPessoas(Pessoa P ) {
+			pessoasList.add(P);
+			
+		}
 
 }
