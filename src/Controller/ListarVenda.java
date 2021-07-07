@@ -14,6 +14,7 @@ public class ListarVenda {
 				"\nQuantidade de vendas: " + venda.getQuantidadeDeVendas() +
 				"\nNome do veiculo vendido: " + venda.getNomeVeiculoVendido() +
 				"\nCor do veiculo vendido: " + venda.getCorVeiculoVendido() +
+                "\nCategoria do veiculo vendido:" + venda.getCategoriaVeiculoVendido() +
                 "\nPreco do veiculo vendido:" + venda.getPrecoVeiculoVendido());
     }
 
