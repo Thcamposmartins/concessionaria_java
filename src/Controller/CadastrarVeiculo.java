@@ -1,9 +1,10 @@
 package Controller;
 
-import Model.Hatch;
+/*import Model.Hatch;
 import Model.Picape;
 import Model.SUV;
-import Model.Sedan;
+import Model.Sedan;*/
+import Model.Veiculo;
 
 public class CadastrarVeiculo {
 
@@ -11,6 +12,12 @@ public class CadastrarVeiculo {
 
     }
 
+    public Veiculo cadastrarVeiculo(String nome, String cor, String categoria, Double preco) {
+        Veiculo veiculo = new Veiculo(nome, cor, categoria, preco);
+        return veiculo;
+    }
+
+    /*
     public Picape cadastrarPicape(String nome, String cor, Double preco, int qtd) {
         Picape picape = new Picape(nome, cor, preco, qtd);
         return picape;
@@ -30,5 +37,5 @@ public class CadastrarVeiculo {
         Hatch hatch = new Hatch(nome, cor, preco, qtd);
         return hatch;
     }
-    
+    */
 }

@@ -4,12 +4,14 @@ public class Veiculo {
 
     private String nome;
     private String cor;
-    private int qtd;
+    private String categoria;
+    private Double preco;
 
-    public Veiculo(String nome, String cor, int qtd) {
+    public Veiculo(String nome, String cor, String categoria, Double preco) {
         this.setNome(nome);
         this.setCor(cor);
-        this.setQtd(qtd);
+        this.setCategoria(categoria);
+        this.setPreco(preco);
     }
 
     public String getNome() {
@@ -28,12 +30,20 @@ public class Veiculo {
         this.cor = cor;
     }
 
-	public int getQtd() {
-		return qtd;
+	public String getCategoria() {
+		return categoria;
 	}
 
-	public void setQtd(int qtd) {
-		this.qtd = qtd;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
  
 }
