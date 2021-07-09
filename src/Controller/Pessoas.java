@@ -6,7 +6,7 @@ import Model.Pessoa;
 
 public class Pessoas {
 	
-	ArrayList<Pessoa> pessoasList;
+	public ArrayList<Pessoa> pessoasList;
 
 	public Pessoas() {
 		
@@ -21,9 +21,10 @@ public class Pessoas {
 			this.pessoasList = pessoasList;
 		}
 
-		public void addPessoas(Pessoa P ) {
-			pessoasList.add(P);
+		public void addPessoas(Pessoa listPessoa ) {
+			pessoasList.add(listPessoa);
 			
 		}
+
 
 }

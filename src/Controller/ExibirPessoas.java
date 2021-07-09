@@ -1,23 +1,14 @@
 package Controller;
 
-import Model.Cliente;
-import Model.Funcionario;
+import Model.Pessoa;
 
 public class ExibirPessoas {
 
 	public ExibirPessoas() {
 		
 	}
-	public void ExibirFuncionario(Funcionario funcionario){
-		funcionario.getId();
-		funcionario.getNome();
-		funcionario.getSalario();
-		System.out.println(
-				"\nID: "+funcionario.getId() +
-				"\nNome: "+ funcionario.getNome() +
-				"\nSalario: "+ funcionario.getSalario());	
-	}
-	public void ExibirCliente(Cliente cliente){
+
+	public void ExibirCliente(Pessoa cliente){
 		cliente.getId();
 		cliente.getNome();
 		cliente.getCpf();

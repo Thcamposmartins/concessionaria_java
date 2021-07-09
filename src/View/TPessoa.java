@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 
 import Controller.Pessoas;
 import Model.Pessoa;
+import View.TMain;
+import View.TRelatorioPessoa;
 
 import javax.swing.border.EtchedBorder;
 import javax.swing.JTextField;
@@ -46,7 +48,7 @@ public class TPessoa {
 			public void run() {
 				try {
 					TPessoa window = new TPessoa();
-					window.frame.setVisible(true);					
+					window.getFrame().setVisible(true);					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,84 +60,68 @@ public class TPessoa {
 	 * Create the application.
 	 */
 	public TPessoa() {		
-		initialize();		
+		initialize();	
+		
 		//setLocationRelativeTo(null);
 	}
-	
-	ArrayList<Pessoa> ListPessoa = new ArrayList();
 	Pessoas listPessoas = new Pessoas();
-	
-	public void LoadTablePessoas() {
-		DefaultTableModel modelo = new DefaultTableModel(new Object[] {"ID","Nome","Telefone","CPF","Idade","Email"},0);
-		
-		for(int i=0; i<ListPessoa.size();i++) {
-			modelo.addRow(new Object[]{ListPessoa.get(i).getId(),
-					ListPessoa.get(i).getNome(),
-					ListPessoa.get(i).getTelefone(),
-					ListPessoa.get(i).getCpf(),
-					ListPessoa.get(i).getIdade(),
-					ListPessoa.get(i).getEmail()});
-			
-		};
-	};
-
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setForeground(new Color(47, 79, 79));
-		frame.getContentPane().setBackground(new Color(211, 211, 211));
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setFrame(new JFrame());
+		getFrame().getContentPane().setForeground(new Color(47, 79, 79));
+		getFrame().getContentPane().setBackground(new Color(211, 211, 211));
+		getFrame().setBounds(100, 100, 450, 300);
+		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getFrame().getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Pessoas");
-		lblNewLabel.setForeground(new Color(47, 79, 79));
+		lblNewLabel.setForeground(new Color(0, 139, 139));
 		lblNewLabel.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblNewLabel.setFont(new Font("Yu Gothic", Font.PLAIN, 24));
 		lblNewLabel.setBounds(20, 11, 233, 38);
-		frame.getContentPane().add(lblNewLabel);
+		getFrame().getContentPane().add(lblNewLabel);
 		
 		JPanel funcionario = new JPanel();
 		funcionario.setBackground(new Color(211, 211, 211));
-		funcionario.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Cadastro", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(47, 79, 79)));
+		funcionario.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Cadastro", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 139, 139)));
 		funcionario.setBounds(10, 44, 414, 152);
-		frame.getContentPane().add(funcionario);
+		getFrame().getContentPane().add(funcionario);
 		funcionario.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1.setForeground(new Color(47, 79, 79));
+		lblNewLabel_1.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1.setBounds(322, 14, 46, 14);
 		funcionario.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Nome");
-		lblNewLabel_1_1.setForeground(new Color(47, 79, 79));
+		lblNewLabel_1_1.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblNewLabel_1_1.setBounds(10, 36, 46, 14);
 		funcionario.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Idade");
-		lblNewLabel_1_2.setForeground(new Color(47, 79, 79));
+		lblNewLabel_1_2.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblNewLabel_1_2.setBounds(10, 64, 46, 14);
 		funcionario.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("E-mail");
-		lblNewLabel_1_3.setForeground(new Color(47, 79, 79));
+		lblNewLabel_1_3.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_3.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblNewLabel_1_3.setBounds(10, 120, 46, 14);
 		funcionario.add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("CPF");
-		lblNewLabel_1_4.setForeground(new Color(47, 79, 79));
+		lblNewLabel_1_4.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_4.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblNewLabel_1_4.setBounds(242, 64, 46, 14);
 		funcionario.add(lblNewLabel_1_4);
 		
 		JLabel lblNewLabel_1_5 = new JLabel("Telefone");
-		lblNewLabel_1_5.setForeground(new Color(47, 79, 79));
+		lblNewLabel_1_5.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_5.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblNewLabel_1_5.setBounds(224, 92, 46, 14);
 		funcionario.add(lblNewLabel_1_5);
@@ -171,31 +157,31 @@ public class TPessoa {
 		txtTelefone.setColumns(10);
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Funcionario");
-		lblNewLabel_1_2_1.setForeground(new Color(47, 79, 79));
+		lblNewLabel_1_2_1.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_2_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblNewLabel_1_2_1.setBounds(10, 89, 70, 14);
 		funcionario.add(lblNewLabel_1_2_1);
 		
 		JRadioButton btCliente = new JRadioButton("");
-		btCliente.setBackground(new Color(220, 220, 220));
+		btCliente.setBackground(new Color(211, 211, 211));
 		btCliente.setBounds(158, 87, 21, 23);
 		funcionario.add(btCliente);
 		
 		JLabel lblNewLabel_1_2_1_1 = new JLabel("Cliente");
-		lblNewLabel_1_2_1_1.setForeground(new Color(47, 79, 79));
+		lblNewLabel_1_2_1_1.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblNewLabel_1_2_1_1.setBounds(116, 92, 70, 14);
 		funcionario.add(lblNewLabel_1_2_1_1);
 		
 		JRadioButton btFuncionario = new JRadioButton("");
-		btFuncionario.setBackground(new Color(220, 220, 220));
+		btFuncionario.setBackground(new Color(211, 211, 211));
 		btFuncionario.setBounds(74, 85, 21, 23);
 		funcionario.add(btFuncionario);
 		
-		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnSalvar.setForeground(new Color(47, 79, 79));
-		btnSalvar.addActionListener(new ActionListener() {
+		JButton btnSalvarPess = new JButton("Salvar");
+		btnSalvarPess.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnSalvarPess.setForeground(new Color(0, 139, 139));
+		btnSalvarPess.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				Pessoa pessoa = new Pessoa();
@@ -206,12 +192,53 @@ public class TPessoa {
 				pessoa.setIdade(Integer.parseInt(txtIdade.getText()));
 				pessoa.setNome(txtNome.getText());
 				pessoa.setTelefone(txtTelefone.getText());
-				listPessoas.addPessoas(pessoa);
+				TMain.listPessoa.addPessoas(pessoa);				
+			}
+		});
+		btnSalvarPess.setBackground(new Color(169, 169, 169));
+		btnSalvarPess.setBounds(262, 207, 76, 43);
+		getFrame().getContentPane().add(btnSalvarPess);
+		
+		JButton btnCancelarPess = new JButton("Cancelar");
+		btnCancelarPess.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				TMain window = new TMain();
+				window.frame.setVisible(true);	
 				
 			}
 		});
-		btnSalvar.setBackground(new Color(169, 169, 169));
-		btnSalvar.setBounds(348, 207, 76, 43);
-		frame.getContentPane().add(btnSalvar);
+		btnCancelarPess.setForeground(new Color(0, 139, 139));
+		btnCancelarPess.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnCancelarPess.setBackground(new Color(169, 169, 169));
+		btnCancelarPess.setBounds(348, 207, 76, 43);
+		frame.getContentPane().add(btnCancelarPess);
+		
+		JButton btnNovoPess = new JButton("Novo");
+		btnNovoPess.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtNome.setText("");
+				txtCPF.setText("");
+				txtEmail.setText("");
+				txtID.setText("");
+				txtIdade.setText("");
+				txtTelefone.setText("");
+				btCliente.setAutoscrolls(false);
+				btFuncionario.setAutoscrolls(false);
+			}
+		});
+		btnNovoPess.setForeground(new Color(0, 139, 139));
+		btnNovoPess.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnNovoPess.setBackground(new Color(169, 169, 169));
+		btnNovoPess.setBounds(177, 207, 76, 43);
+		frame.getContentPane().add(btnNovoPess);
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 }
