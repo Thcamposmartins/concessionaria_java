@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.Pessoas;
+import Controller.PessoasController;
 import Model.Pessoa;
 
 public class TRelatorioPessoa {

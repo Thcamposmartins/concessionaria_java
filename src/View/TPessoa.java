@@ -12,7 +12,7 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.Pessoas;
+import Controller.PessoasController;
 import Model.Pessoa;
 import View.TMain;
 import View.TRelatorioPessoa;
@@ -64,7 +64,7 @@ public class TPessoa {
 		
 		//setLocationRelativeTo(null);
 	}
-	Pessoas listPessoas = new Pessoas();
+	PessoasController listPessoas = new PessoasController();
 	/**
 	 * Initialize the contents of the frame.
 	 */

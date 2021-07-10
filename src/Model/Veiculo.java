@@ -1,6 +1,6 @@
 package Model;
 
-public class Veiculo {
+public class Veiculo extends Object {
 
     private String nome;
     private String cor;

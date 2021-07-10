@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 import Model.Pessoa;
 
-public class Pessoas {
+public class PessoasController {
 	
 	public ArrayList<Pessoa> pessoasList;
 
-	public Pessoas() {
+	public PessoasController() {
 		
-		pessoasList = new ArrayList();		
+		pessoasList = new ArrayList<Pessoa>();		
 	}	
 
 	    public ArrayList<Pessoa> getClienteList() {

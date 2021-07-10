@@ -1,6 +1,6 @@
 package Model;
 
-public class Pessoa {
+public class Pessoa extends Object{
 	private int id;
 	private int idade;
 	private String nome;
