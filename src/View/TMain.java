@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.TitledBorder;
 
 import Controller.PessoasController;
+import Controller.VeiculoController;
 import Model.Pessoa;
 
 import javax.swing.border.EtchedBorder;
@@ -58,6 +59,7 @@ public class TMain {
 	 * Initialize the contents of the frame.
 	 */
 	static PessoasController listPessoa = new PessoasController();
+	static VeiculoController listVeiculo = new VeiculoController();
 	
 	private void initialize() {
 		frame = new JFrame();

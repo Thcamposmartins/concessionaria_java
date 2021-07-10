@@ -22,15 +22,17 @@ import javax.swing.table.DefaultTableModel;
 
 import Controller.PessoasController;
 import Model.Pessoa;
+import Model.Veiculo;
 
 public class TRelatorioPessoa {
 
 	private JFrame frame;
-	private JTextField textLookID;
+	private JTextField txtPesqPessoa;
 	private JButton btnAtualizar;
 	private JButton btnApagar;
 	private JTable table;
 	private JScrollPane scrollPane;
+	private JButton btnVoltar;
 
 	/**
 	 * Launch the application.
@@ -89,29 +91,25 @@ public class TRelatorioPessoa {
 		lblNewLabel_1.setBounds(10, 17, 66, 14);
 		panel.add(lblNewLabel_1);
 		
-		textLookID = new JTextField();
-		textLookID.setColumns(10);
-		textLookID.setBounds(71, 17, 46, 14);
-		panel.add(textLookID);
+		txtPesqPessoa = new JTextField();
+		txtPesqPessoa.setColumns(10);
+		txtPesqPessoa.setBounds(71, 17, 46, 14);
+		panel.add(txtPesqPessoa);
 		
 		btnAtualizar = new JButton("Atualizar");
 		btnAtualizar.setHorizontalAlignment(SwingConstants.LEFT);
-		btnAtualizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//LoadTablePessoas();
-			}
-		});
+		
 		btnAtualizar.setForeground(new Color(0, 128, 128));
 		btnAtualizar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnAtualizar.setBackground(new Color(169, 169, 169));
-		btnAtualizar.setBounds(239, 208, 82, 43);
+		btnAtualizar.setBounds(173, 207, 82, 43);
 		getFrame().getContentPane().add(btnAtualizar);
 		
 		btnApagar = new JButton("Apagar");
 		btnApagar.setForeground(new Color(0, 128, 128));
 		btnApagar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnApagar.setBackground(new Color(169, 169, 169));
-		btnApagar.setBounds(342, 208, 82, 43);
+		btnApagar.setBounds(258, 207, 82, 43);
 		getFrame().getContentPane().add(btnApagar);
 		
 		scrollPane = new JScrollPane();
@@ -130,6 +128,19 @@ public class TRelatorioPessoa {
 				"ID", "Nome", "Idade", "CPF", "Telefone", "E-mail"
 			}
 		));
+		
+		btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TMain window = new TMain();
+				window.frame.setVisible(true);
+			}
+		});
+		btnVoltar.setForeground(new Color(0, 128, 128));
+		btnVoltar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnVoltar.setBackground(new Color(169, 169, 169));
+		btnVoltar.setBounds(342, 208, 82, 43);
+		frame.getContentPane().add(btnVoltar);
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		
 		for(Pessoa pessoa : TMain.listPessoa.pessoasList) {
@@ -142,6 +153,26 @@ public class TRelatorioPessoa {
 					pessoa.getEmail()});
 			
 		}; 
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				((DefaultTableModel) table.getModel()).setRowCount(0);
+				
+				for(Pessoa pessoa : TMain.listPessoa.pessoasList) {
+					if (Integer.parseInt(txtPesqPessoa.getText())==pessoa.getId()) {
+						model.addRow(new Object[]{
+								pessoa.getId(),
+								pessoa.getNome(),
+								pessoa.getIdade(),
+								pessoa.getCpf(),
+								pessoa.getTelefone(),
+								pessoa.getEmail()});
+
+				
+			}}}
+				
+			
+		});
 	}
 
 	public JFrame getFrame() {

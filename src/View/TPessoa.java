@@ -201,8 +201,8 @@ public class TPessoa {
 		
 		JButton btnCancelarPess = new JButton("Cancelar");
 		btnCancelarPess.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-
 				TMain window = new TMain();
 				window.frame.setVisible(true);	
 				

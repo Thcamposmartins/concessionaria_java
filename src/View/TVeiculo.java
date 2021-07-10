@@ -9,9 +9,15 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import Model.Veiculo;
+
 import javax.swing.border.EtchedBorder;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TVeiculo {
 
@@ -20,7 +26,7 @@ public class TVeiculo {
 	private JTextField txtNomeVei;
 	private JTextField txtCorVeic;
 	private JTextField txtCatVei;
-	private JTextField tatValorVeic;
+	private JTextField txtValorVeic;
 
 	/**
 	 * Launch the application.
@@ -64,20 +70,20 @@ public class TVeiculo {
 		lblVeiculos.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblVeiculos.setForeground(new Color(0, 139, 139));
 		lblVeiculos.setFont(new Font("Yu Gothic", Font.PLAIN, 24));
-		lblVeiculos.setBounds(10, 24, 233, 38);
+		lblVeiculos.setBounds(10, 11, 233, 38);
 		panel.add(lblVeiculos);
 		
 		JPanel funcionario = new JPanel();
 		funcionario.setLayout(null);
 		funcionario.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Cadastro", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 139, 139)));
 		funcionario.setBackground(new Color(211, 211, 211));
-		funcionario.setBounds(10, 60, 414, 152);
+		funcionario.setBounds(10, 43, 414, 152);
 		panel.add(funcionario);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID");
 		lblNewLabel_1.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(322, 14, 46, 14);
+		lblNewLabel_1.setBounds(322, 14, 12, 14);
 		funcionario.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Nome");
@@ -106,12 +112,12 @@ public class TVeiculo {
 		
 		txtIDVeic = new JTextField();
 		txtIDVeic.setColumns(10);
-		txtIDVeic.setBounds(347, 11, 46, 20);
+		txtIDVeic.setBounds(347, 11, 27, 20);
 		funcionario.add(txtIDVeic);
 		
 		txtNomeVei = new JTextField();
 		txtNomeVei.setColumns(10);
-		txtNomeVei.setBounds(46, 39, 347, 20);
+		txtNomeVei.setBounds(46, 42, 347, 14);
 		funcionario.add(txtNomeVei);
 		
 		txtCorVeic = new JTextField();
@@ -136,19 +142,70 @@ public class TVeiculo {
 		lblNewLabel_1_2_1_1.setBounds(10, 127, 70, 14);
 		funcionario.add(lblNewLabel_1_2_1_1);
 		
-		JRadioButton bt_novo = new JRadioButton("");
-		bt_novo.setBackground(new Color(211, 211, 211));
-		bt_novo.setBounds(45, 96, 21, 23);
-		funcionario.add(bt_novo);
+		JRadioButton btNovo = new JRadioButton("");
+		btNovo.setBackground(new Color(211, 211, 211));
+		btNovo.setBounds(45, 96, 21, 23);
+		funcionario.add(btNovo);
 		
 		txtCatVei = new JTextField();
 		txtCatVei.setColumns(10);
 		txtCatVei.setBounds(280, 100, 113, 14);
 		funcionario.add(txtCatVei);
 		
-		tatValorVeic = new JTextField();
-		tatValorVeic.setColumns(10);
-		tatValorVeic.setBounds(280, 125, 113, 14);
-		funcionario.add(tatValorVeic);
+		txtValorVeic = new JTextField();
+		txtValorVeic.setColumns(10);
+		txtValorVeic.setBounds(280, 125, 113, 14);
+		funcionario.add(txtValorVeic);
+		
+		JButton btnNovoVeic = new JButton("Novo");
+		btnNovoVeic.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				txtIDVeic.setText("");
+				txtNomeVei.setText("");
+				txtCorVeic.setText("");
+				txtCatVei.setText("");
+				txtValorVeic.setText("");
+				btNovo.setAutoscrolls(false);
+				btUsado.setAutoscrolls(false);
+			}
+		});
+		btnNovoVeic.setForeground(new Color(0, 139, 139));
+		btnNovoVeic.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnNovoVeic.setBackground(new Color(169, 169, 169));
+		btnNovoVeic.setBounds(178, 206, 76, 43);
+		panel.add(btnNovoVeic);
+		
+		JButton btnSalvaVeic = new JButton("Salvar");
+		btnSalvaVeic.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Veiculo veiculo = new Veiculo();
+				
+				veiculo.setCategoria(txtCatVei.getText());
+				veiculo.setCor(txtCorVeic.getText());
+				veiculo.setID(txtIDVeic.getText());
+				veiculo.setNome(txtNomeVei.getText());
+				veiculo.setPreco(Double.parseDouble(txtValorVeic.getText()));
+				TMain.listVeiculo.addVeiculo(veiculo);
+			}
+		});
+		btnSalvaVeic.setForeground(new Color(0, 139, 139));
+		btnSalvaVeic.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnSalvaVeic.setBackground(new Color(169, 169, 169));
+		btnSalvaVeic.setBounds(264, 206, 76, 43);
+		panel.add(btnSalvaVeic);
+		
+		JButton btnCancelarPess = new JButton("Cancelar");
+		btnCancelarPess.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TMain window = new TMain();
+				window.frame.setVisible(true);					
+			}
+		});
+		btnCancelarPess.setForeground(new Color(0, 139, 139));
+		btnCancelarPess.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		btnCancelarPess.setBackground(new Color(169, 169, 169));
+		btnCancelarPess.setBounds(348, 206, 76, 43);
+		panel.add(btnCancelarPess);
 	}
 }
