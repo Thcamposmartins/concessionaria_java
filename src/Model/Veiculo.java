@@ -2,7 +2,7 @@ package Model;
 
 public class Veiculo extends Object {
 	
-	private String ID;
+	private int ID;
     private String nome;
     private String cor;
     private String categoria;
@@ -12,7 +12,7 @@ public class Veiculo extends Object {
     	
     }
 
-    public Veiculo( String ID, String nome, String cor, String categoria, Double preco) {
+    public Veiculo( int ID, String nome, String cor, String categoria, Double preco) {
     	this.setID(ID);
         this.setNome(nome);
         this.setCor(cor);
@@ -20,13 +20,7 @@ public class Veiculo extends Object {
         this.setPreco(preco);
     }
 
-	public String getID() {
-		return ID;
-	}
 
-	public void setID(String iD) {
-		ID = iD;
-	}
 
 	public String getNome() {
 		return nome;
@@ -58,6 +52,14 @@ public class Veiculo extends Object {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 
  
