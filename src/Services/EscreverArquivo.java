@@ -6,17 +6,30 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import Model.Pessoa;
+import Model.Veiculo;
 
 public class EscreverArquivo {
+	
+	public EscreverArquivo(){
+		
+	};
 
-	public EscreverArquivo(String arquivo, ArrayList<Pessoa> listaPessoas) throws IOException {
+	public void EscreverArquivoPessoa(ArrayList<Pessoa> listaPessoas) throws IOException {
 		
 		try {
-		FileWriter fw = new FileWriter(arquivo+".txt");	
+		FileWriter fw = new FileWriter("pessoas.txt");	
 		PrintWriter pw = new PrintWriter(fw);
 		
-			for (Object  obj : listaPessoas) {
-				pw.println(obj);				
+			for (Pessoa  obj : listaPessoas) {	
+				pw.println("------------------------------------------------");
+				pw.println("ID: "+ obj.getId());
+				pw.println("Nome: "+obj.getNome());
+				pw.println("Idade: "+obj.getIdade());
+				pw.println("CPF: "+obj.getCpf());
+				pw.println("E-mail: " + obj.getEmail());
+				pw.println("Telefone: " + obj.getTelefone());
+				pw.println("-------------------------------------------------");
+				
 			}
 			pw.flush();
 			pw.close();
@@ -24,7 +37,31 @@ public class EscreverArquivo {
 		}
 		
 		catch(IOException ex) {
-			Logger.getLogger(arquivo);
+			Logger.getLogger("Pesoas");
+		};
+	}
+	public void EscreverArquivoVeiculos(ArrayList<Veiculo> listaveiculos) throws IOException {
+		
+		try {
+		FileWriter fw = new FileWriter("veiculos.txt");	
+		PrintWriter pw = new PrintWriter(fw);
+		
+			for (Veiculo  obj : listaveiculos) {
+				pw.println("-------------------------------------------------");
+				pw.println("ID: " + obj.getID());	
+				pw.println("Nome: " + obj.getNome());	
+				pw.println("Cor: " + obj.getCor());	
+				pw.println("Categoria: " + obj.getCategoria());	
+				pw.println("Valor: "+ obj.getPreco());	
+				pw.println("--------------------------------------------------");
+			}
+			pw.flush();
+			pw.close();
+			fw.close();
+		}
+		
+		catch(IOException ex) {
+			Logger.getLogger("Veiculos");
 		};
 	}
 }

@@ -25,6 +25,13 @@ public class VeiculoController {
 			veiculosList.add(veiculo);
 			
 		}
+		public void removeVeiculo(int ID ) {
+			for(Veiculo v : veiculosList ) {
+				if(v.getID()==ID) {
+					veiculosList.remove(v);
+				}			
+			}		
+		}
 
 
 }

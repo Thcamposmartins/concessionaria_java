@@ -1,7 +1,7 @@
 package View;
 
 import java.awt.EventQueue;
-
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -36,7 +36,7 @@ public class TRelatorioVeiculo {
 			public void run() {
 				try {
 					TRelatorioVeiculo window = new TRelatorioVeiculo();
-					window.frame.setVisible(true);
+					window.getFrame().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,20 +50,16 @@ public class TRelatorioVeiculo {
 	public TRelatorioVeiculo() {
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setFrame(new JFrame());
+		getFrame().setBounds(100, 100, 450, 300);
+		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getFrame().getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(211, 211, 211));
 		panel.setBounds(0, 0, 434, 261);
-		frame.getContentPane().add(panel);
+		getFrame().getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblRe = new JLabel("Relatorio de cadastros ");
@@ -103,35 +99,36 @@ public class TRelatorioVeiculo {
 		
 		JButton btnAtualizar = new JButton("Atualizar");
 		btnAtualizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				((DefaultTableModel) table.getModel()).setRowCount(0);
+		public void actionPerformed(ActionEvent e) {
+			((DefaultTableModel) table.getModel()).setRowCount(0);
+			for(Veiculo veiculo : TMain.listVeiculo.veiculosList) {
+				model.addRow(new Object[]{
+						veiculo.getID(),
+						veiculo.getNome(),
+						veiculo.getCor(),
+						veiculo.getPreco(),
+						veiculo.getCategoria()
+						});				
+			}; 
+	
 				
-				for(Veiculo veiculo : TMain.listVeiculo.veiculosList) {
-					if (texPesVec.getText()==veiculo.getID()) {
-				}
-					model.addRow(new Object[]{
-							veiculo.getID(),
-							veiculo.getNome(),
-							veiculo.getCor(),
-							veiculo.getPreco(),
-							veiculo.getCategoria()
-							});
-
-				
-			}}
-		});
-		btnAtualizar.setHorizontalAlignment(SwingConstants.LEFT);
+		}});
 		btnAtualizar.setForeground(new Color(0, 128, 128));
-		btnAtualizar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnAtualizar.setBackground(new Color(169, 169, 169));
-		btnAtualizar.setBounds(159, 213, 82, 43);
+		btnAtualizar.setFont(new Font("Times New Roman", Font.PLAIN, 10));
+		btnAtualizar.setBackground(new Color(211, 211, 211));
+		btnAtualizar.setBounds(187, 213, 77, 43);
 		panel.add(btnAtualizar);
 		
 		JButton btnApagar = new JButton("Apagar");
+		btnApagar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TMain.listVeiculo.removeVeiculo(Integer.parseInt(texPesVec.getText()));
+			}
+		});
 		btnApagar.setForeground(new Color(0, 128, 128));
-		btnApagar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnApagar.setBackground(new Color(169, 169, 169));
-		btnApagar.setBounds(251, 213, 82, 43);
+		btnApagar.setFont(new Font("Times New Roman", Font.PLAIN, 10));
+		btnApagar.setBackground(new Color(211, 211, 211));
+		btnApagar.setBounds(268, 213, 77, 43);
 		panel.add(btnApagar);
 		
 		JPanel panel_1 = new JPanel();
@@ -139,31 +136,62 @@ public class TRelatorioVeiculo {
 		panel_1.setForeground(new Color(0, 139, 139));
 		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Pesquisa", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 139, 139)));
 		panel_1.setBackground(new Color(211, 211, 211));
-		panel_1.setBounds(20, 213, 129, 38);
+		panel_1.setBounds(10, 207, 173, 49);
 		panel.add(panel_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID Veiculo");
 		lblNewLabel_1.setForeground(new Color(0, 128, 128));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(10, 17, 66, 14);
+		lblNewLabel_1.setBounds(10, 24, 66, 14);
 		panel_1.add(lblNewLabel_1);
 		
 		texPesVec = new JTextField();
 		texPesVec.setColumns(10);
-		texPesVec.setBounds(71, 17, 46, 14);
+		texPesVec.setBounds(68, 24, 37, 14);
 		panel_1.add(texPesVec);
+		
+		JButton btnOk = new JButton("OK");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				((DefaultTableModel) table.getModel()).setRowCount(0);		
+				
+				for(Veiculo veiculo : TMain.listVeiculo.veiculosList) {
+					if (Integer.parseInt(texPesVec.getText())==veiculo.getID()) {						
+						model.addRow(new Object[]{
+								veiculo.getID(),
+								veiculo.getNome(),
+								veiculo.getCor(),
+								veiculo.getPreco(),
+								veiculo.getCategoria()
+								});				
+					}			
+				}
+			}
+		});
+		btnOk.setForeground(new Color(0, 128, 128));
+		btnOk.setFont(new Font("Times New Roman", Font.PLAIN, 10));
+		btnOk.setBackground(new Color(211, 211, 211));
+		btnOk.setBounds(115, 11, 49, 33);
+		panel_1.add(btnOk);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TMain window = new TMain();
-				window.frame.setVisible(true);
+				frame.dispose();
 			}
 		});
 		btnVoltar.setForeground(new Color(0, 128, 128));
-		btnVoltar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnVoltar.setBackground(new Color(169, 169, 169));
-		btnVoltar.setBounds(343, 213, 82, 43);
+		btnVoltar.setFont(new Font("Times New Roman", Font.PLAIN, 10));
+		btnVoltar.setBackground(new Color(211, 211, 211));
+		btnVoltar.setBounds(348, 213, 77, 43);
 		panel.add(btnVoltar);
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 }

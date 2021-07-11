@@ -18,11 +18,14 @@ import javax.swing.border.TitledBorder;
 import Controller.PessoasController;
 import Controller.VeiculoController;
 import Model.Pessoa;
+import Services.EscreverArquivo;
 
 import javax.swing.border.EtchedBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
@@ -60,6 +63,7 @@ public class TMain {
 	 */
 	static PessoasController listPessoa = new PessoasController();
 	static VeiculoController listVeiculo = new VeiculoController();
+	EscreverArquivo gravar = new EscreverArquivo();
 	
 	private void initialize() {
 		frame = new JFrame();
@@ -96,6 +100,13 @@ public class TMain {
 		panel_2.setLayout(null);
 		
 		JButton btnNewVeiculo = new JButton("Veiculos");
+		btnNewVeiculo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TVeiculo window = new TVeiculo();
+				window.getFrame().setVisible(true);
+				
+			}
+		});
 		btnNewVeiculo.setForeground(new Color(0, 128, 128));
 		btnNewVeiculo.setBounds(10, 82, 89, 23);
 		panel_2.add(btnNewVeiculo);
@@ -109,12 +120,12 @@ public class TMain {
 		panel_2_1.setLayout(null);
 		panel_2_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Vendas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(211, 211, 211)));
 		panel_2_1.setBackground(new Color(0, 128, 128));
-		panel_2_1.setBounds(140, 50, 110, 129);
+		panel_2_1.setBounds(138, 50, 112, 73);
 		panel_1.add(panel_2_1);
 		
 		JButton btnNewVenda = new JButton("Venda");
 		btnNewVenda.setForeground(new Color(0, 128, 128));
-		btnNewVenda.setBounds(10, 60, 89, 23);
+		btnNewVenda.setBounds(10, 28, 89, 23);
 		panel_2_1.add(btnNewVenda);
 		
 		JPanel panel_2_2 = new JPanel();
@@ -125,6 +136,12 @@ public class TMain {
 		panel_1.add(panel_2_2);
 		
 		JButton btnNewVeiculoRel = new JButton("Veiculos");
+		btnNewVeiculoRel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TRelatorioVeiculo window = new TRelatorioVeiculo();
+				window.getFrame().setVisible(true);
+			}
+		});
 		btnNewVeiculoRel.setForeground(new Color(0, 128, 128));
 		btnNewVeiculoRel.setBounds(10, 82, 89, 23);
 		panel_2_2.add(btnNewVeiculoRel);
@@ -139,6 +156,24 @@ public class TMain {
 		btnNewPessoaRel.setForeground(new Color(0, 128, 128));
 		btnNewPessoaRel.setBounds(10, 36, 89, 23);
 		panel_2_2.add(btnNewPessoaRel);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+				gravar.EscreverArquivoPessoa(listPessoa.pessoasList);
+				gravar.EscreverArquivoVeiculos(listVeiculo.veiculosList);
+				}
+				catch(IOException ex){
+				}
+				frame.dispose();
+				
+			}
+		});
+		btnSair.setBackground(new Color(0, 128, 128));
+		btnSair.setForeground(new Color(211, 211, 211));
+		btnSair.setBounds(166, 141, 60, 38);
+		panel_1.add(btnSair);
 		btnNewPessoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TPessoa window = new TPessoa();

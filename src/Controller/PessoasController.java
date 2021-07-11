@@ -3,6 +3,7 @@ package Controller;
 import java.util.ArrayList;
 
 import Model.Pessoa;
+import Model.Veiculo;
 
 public class PessoasController {
 	
@@ -24,6 +25,13 @@ public class PessoasController {
 		public void addPessoas(Pessoa listPessoa ) {
 			pessoasList.add(listPessoa);
 			
+		}
+		public void removePessoa(int ID ) {
+			for(Pessoa p : pessoasList ) {
+				if(p.getId()==ID) {
+					pessoasList.remove(p);
+				}			
+			}		
 		}
 
 

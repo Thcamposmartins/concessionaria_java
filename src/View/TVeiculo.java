@@ -36,7 +36,7 @@ public class TVeiculo {
 			public void run() {
 				try {
 					TVeiculo window = new TVeiculo();
-					window.frame.setVisible(true);
+					window.getFrame().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,15 +55,15 @@ public class TVeiculo {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setFrame(new JFrame());
+		getFrame().setBounds(100, 100, 450, 300);
+		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getFrame().getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(211, 211, 211));
 		panel.setBounds(0, 0, 434, 261);
-		frame.getContentPane().add(panel);
+		getFrame().getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblVeiculos = new JLabel("Veiculos");
@@ -117,12 +117,12 @@ public class TVeiculo {
 		
 		txtNomeVei = new JTextField();
 		txtNomeVei.setColumns(10);
-		txtNomeVei.setBounds(46, 42, 347, 14);
+		txtNomeVei.setBounds(46, 42, 347, 20);
 		funcionario.add(txtNomeVei);
 		
 		txtCorVeic = new JTextField();
 		txtCorVeic.setColumns(10);
-		txtCorVeic.setBounds(280, 75, 113, 14);
+		txtCorVeic.setBounds(280, 69, 113, 20);
 		funcionario.add(txtCorVeic);
 		
 		JLabel lblNewLabel_1_2_1 = new JLabel("Novo");
@@ -149,12 +149,12 @@ public class TVeiculo {
 		
 		txtCatVei = new JTextField();
 		txtCatVei.setColumns(10);
-		txtCatVei.setBounds(280, 100, 113, 14);
+		txtCatVei.setBounds(280, 94, 113, 20);
 		funcionario.add(txtCatVei);
 		
 		txtValorVeic = new JTextField();
 		txtValorVeic.setColumns(10);
-		txtValorVeic.setBounds(280, 125, 113, 14);
+		txtValorVeic.setBounds(280, 122, 113, 20);
 		funcionario.add(txtValorVeic);
 		
 		JButton btnNovoVeic = new JButton("Novo");
@@ -183,7 +183,7 @@ public class TVeiculo {
 				
 				veiculo.setCategoria(txtCatVei.getText());
 				veiculo.setCor(txtCorVeic.getText());
-				veiculo.setID(txtIDVeic.getText());
+				veiculo.setID(Integer.parseInt(txtIDVeic.getText()));
 				veiculo.setNome(txtNomeVei.getText());
 				veiculo.setPreco(Double.parseDouble(txtValorVeic.getText()));
 				TMain.listVeiculo.addVeiculo(veiculo);
@@ -198,8 +198,7 @@ public class TVeiculo {
 		JButton btnCancelarPess = new JButton("Cancelar");
 		btnCancelarPess.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TMain window = new TMain();
-				window.frame.setVisible(true);					
+				frame.dispose();					
 			}
 		});
 		btnCancelarPess.setForeground(new Color(0, 139, 139));
@@ -207,5 +206,13 @@ public class TVeiculo {
 		btnCancelarPess.setBackground(new Color(169, 169, 169));
 		btnCancelarPess.setBounds(348, 206, 76, 43);
 		panel.add(btnCancelarPess);
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 }
