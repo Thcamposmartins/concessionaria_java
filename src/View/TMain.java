@@ -17,6 +17,7 @@ import javax.swing.border.TitledBorder;
 
 import Controller.PessoasController;
 import Controller.VeiculoController;
+import Controller.VendaController;
 import Model.Pessoa;
 import Services.EscreverArquivo;
 
@@ -63,6 +64,7 @@ public class TMain {
 	 */
 	static PessoasController listPessoa = new PessoasController();
 	static VeiculoController listVeiculo = new VeiculoController();
+	static VendaController listVenda = new VendaController();
 	EscreverArquivo gravar = new EscreverArquivo();
 	
 	private void initialize() {
@@ -104,7 +106,6 @@ public class TMain {
 			public void actionPerformed(ActionEvent e) {
 				TVeiculo window = new TVeiculo();
 				window.getFrame().setVisible(true);
-				
 			}
 		});
 		btnNewVeiculo.setForeground(new Color(0, 128, 128));
@@ -124,6 +125,12 @@ public class TMain {
 		panel_1.add(panel_2_1);
 		
 		JButton btnNewVenda = new JButton("Venda");
+		btnNewVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TVenda window = new TVenda();
+				window.getFrame().setVisible(true);
+			}
+		});
 		btnNewVenda.setForeground(new Color(0, 128, 128));
 		btnNewVenda.setBounds(10, 28, 89, 23);
 		panel_2_1.add(btnNewVenda);
@@ -163,6 +170,8 @@ public class TMain {
 				try {
 				gravar.EscreverArquivoPessoa(listPessoa.pessoasList);
 				gravar.EscreverArquivoVeiculos(listVeiculo.veiculosList);
+				gravar.EscreverArquivoVendas(listVenda.vendasList);
+
 				}
 				catch(IOException ex){
 				}

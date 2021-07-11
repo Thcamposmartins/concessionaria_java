@@ -2,57 +2,61 @@ package Model;
 
 public class Venda {
     
-    private Integer quantidadeDeVendas;
-    private String nomeVeiculoVendido;
-    private String corVeiculoVendido;
-    private String categoriaVeiculoVendido;
-    private Double precoVeiculoVendido;
+	private int id;
+    private String veiculo;
+    private String cor;
+    private String categoria;
+    private Double preco;
 
-    public Venda(Integer quantidadeDeVendas, String nomeVeiculoVendido, String corVeiculoVendido, String categoriaVeiculoVendido, Double precoVeiculoVendido) {
-        this.quantidadeDeVendas = quantidadeDeVendas;
-        this.nomeVeiculoVendido = nomeVeiculoVendido;
-        this.corVeiculoVendido = corVeiculoVendido;
-        this.categoriaVeiculoVendido = categoriaVeiculoVendido;
-        this.precoVeiculoVendido = precoVeiculoVendido;
+    public Venda() {
+    	
+    }
+    
+    public Venda(int id, String veiculo, String cor, String categoria, Double preco) {
+        this.setId(id);
+        this.setVeiculo(veiculo);
+        this.setCor(cor);
+        this.setCategoria(categoria);
+        this.setPreco(preco);
     }
 
-    public Integer getQuantidadeDeVendas() {
-        return quantidadeDeVendas;
+    public int getId() {
+    	return id;
+    }
+    
+    public void setId(int id) {
+    	this.id = id;
     }
 
-    public void setQuantidadeDeVendas(Integer quantidadeDeVendas) {
-        this.quantidadeDeVendas = quantidadeDeVendas;
-    }
-
-    public String getNomeVeiculoVendido() {
-        return nomeVeiculoVendido;
-    }
-
-    public void setNomeVeiculoVendido(String nomeVeiculoVendido) {
-        this.nomeVeiculoVendido = nomeVeiculoVendido;
-    }
-
-    public String getCorVeiculoVendido() {
-        return corVeiculoVendido;
-    }
-
-    public void setCorVeiculoVendido(String corVeiculoVendido) {
-        this.corVeiculoVendido = corVeiculoVendido;
-    }
-
-    public Double getPrecoVeiculoVendido() {
-        return precoVeiculoVendido;
-    }
-
-    public void setPrecoVeiculoVendido(Double precoVeiculoVendido) {
-        this.precoVeiculoVendido = precoVeiculoVendido;
-    }
-
-    public String getCategoriaVeiculoVendido() {
-        return categoriaVeiculoVendido;
-    }
-
-    public void setCategoriaVeiculoVendido(String categoriaVeiculoVendido) {
-        this.categoriaVeiculoVendido = categoriaVeiculoVendido;
-    }
+   public String getVeiculo() {
+	   return veiculo;
+   }
+   
+   public void setVeiculo(String veiculo) {
+	   this.veiculo = veiculo;
+   }
+   
+   public String getCor() {
+	   return cor;
+   }
+   
+   public void setCor(String cor) {
+	   this.cor = cor;
+   }
+   
+   public String getCategoria() {
+	   return categoria;
+   }
+   
+   public void setCategoria(String categoria) {
+	   this.categoria = categoria;
+   }
+   
+   public Double getPreco() {
+	   return preco;
+   }
+   
+   public void setPreco(Double preco) {
+	   this.preco = preco;
+   }
 }

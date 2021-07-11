@@ -61,6 +61,7 @@ public class EscreverArquivo {
 		}
 		
 		catch(IOException ex) {
+
 			Logger.getLogger("Veiculos");
 		};
 	}
