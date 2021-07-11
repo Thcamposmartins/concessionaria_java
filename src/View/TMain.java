@@ -171,7 +171,6 @@ public class TMain {
 				gravar.EscreverArquivoPessoa(listPessoa.pessoasList);
 				gravar.EscreverArquivoVeiculos(listVeiculo.veiculosList);
 				gravar.EscreverArquivoVendas(listVenda.vendasList);
-
 				}
 				catch(IOException ex){
 				}

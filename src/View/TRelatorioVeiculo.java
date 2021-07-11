@@ -20,6 +20,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
+import java.util.logging.Logger;
 import java.awt.event.ActionEvent;
 
 public class TRelatorioVeiculo {
@@ -81,7 +82,7 @@ public class TRelatorioVeiculo {
 			new Object[][] {
 			},
 			new String[] {
-				"ID", "Nome", "Cor", "Preco", "Categoria"
+				"ID", "Nome", "Cor", "Valor", "Categoria"
 			}
 		));
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -122,7 +123,12 @@ public class TRelatorioVeiculo {
 		JButton btnApagar = new JButton("Apagar");
 		btnApagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
 				TMain.listVeiculo.removeVeiculo(Integer.parseInt(texPesVec.getText()));
+				}
+				catch(Exception ex) {
+					Logger.getLogger("Error"+ ex);
+				}
 			}
 		});
 		btnApagar.setForeground(new Color(0, 128, 128));

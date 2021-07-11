@@ -11,6 +11,9 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
+import javax.swing.JFormattedTextField;
 
 import Controller.PessoasController;
 import Model.Pessoa;
@@ -21,6 +24,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
@@ -58,17 +62,16 @@ public class TPessoa {
 
 	/**
 	 * Create the application.
+	 * @throws Exception 
 	 */
-	public TPessoa() {		
+	public TPessoa(){		
 		initialize();	
 		
 		//setLocationRelativeTo(null);
 	}
-	PessoasController listPessoas = new PessoasController();
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+
+	
+	private void initialize(){
 		setFrame(new JFrame());
 		getFrame().getContentPane().setForeground(new Color(47, 79, 79));
 		getFrame().getContentPane().setBackground(new Color(211, 211, 211));
@@ -114,12 +117,12 @@ public class TPessoa {
 		lblNewLabel_1_3.setBounds(10, 120, 46, 14);
 		funcionario.add(lblNewLabel_1_3);
 		
-		JLabel lblNewLabel_1_4 = new JLabel("CPF");
+		JLabel lblNewLabel_1_4 = new JLabel("CPF");		
 		lblNewLabel_1_4.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_4.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblNewLabel_1_4.setBounds(242, 64, 46, 14);
-		funcionario.add(lblNewLabel_1_4);
-		
+		funcionario.add(lblNewLabel_1_4);		
+				
 		JLabel lblNewLabel_1_5 = new JLabel("Telefone");
 		lblNewLabel_1_5.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_5.setFont(new Font("Times New Roman", Font.BOLD, 11));

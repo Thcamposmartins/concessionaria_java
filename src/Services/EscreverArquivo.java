@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 import Model.Pessoa;
 import Model.Veiculo;
+import Model.Venda;
 
 public class EscreverArquivo {
 	
@@ -63,6 +64,38 @@ public class EscreverArquivo {
 		catch(IOException ex) {
 
 			Logger.getLogger("Veiculos");
+		};
+	}
+	public void EscreverArquivoVendas(ArrayList<Venda> listaVendas) throws IOException {
+		
+		try {
+		FileWriter fw = new FileWriter("vendas.txt");	
+		PrintWriter pw = new PrintWriter(fw);
+		
+			for (Venda  obj : listaVendas) {
+				pw.println("-------------------------------------------------");
+				pw.println("DADOS DO VEICULO:");
+				pw.println("ID: " + obj.getId());	
+				pw.println("Veiculo: " + obj.getVeiculo());	
+				pw.println("Cor: " + obj.getCor());	
+				pw.println("Categoria: " + obj.getCategoria());	
+				pw.println("Valor: "+ obj.getPreco());	
+				pw.println("\nDADOS DO COMPRADOR:");
+				pw.println("ID: "+ obj.getId());
+				pw.println("Nome: "+obj.getNomeComprador());
+				pw.println("CPF: "+obj.getCpfComprador());
+				pw.println("E-mail: " + obj.getEmailComprador());
+				pw.println("Telefone: " + obj.getTelefoneComprador());				
+				pw.println("-------------------------------------------------");
+			}
+			pw.flush();
+			pw.close();
+			fw.close();
+		}
+		
+		catch(IOException ex) {
+
+			Logger.getLogger("Vendas");
 		};
 	}
 }

@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
@@ -118,7 +119,12 @@ public class TRelatorioPessoa {
 		btnApagar = new JButton("Apagar");
 		btnApagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
 				TMain.listPessoa.removePessoa(Integer.parseInt(txtPesqPessoa.getText()));
+				}
+				catch(Exception ex) {
+					Logger.getLogger("Error"+ ex);
+				}
 			}
 		});
 		btnApagar.setForeground(new Color(0, 128, 128));
