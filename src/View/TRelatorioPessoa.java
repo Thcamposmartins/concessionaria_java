@@ -33,6 +33,7 @@ public class TRelatorioPessoa {
 	private JTable table;
 	private JScrollPane scrollPane;
 	private JButton btnVoltar;
+	private JButton btnOk;
 
 	/**
 	 * Launch the application.
@@ -81,35 +82,49 @@ public class TRelatorioPessoa {
 		panel.setForeground(new Color(0, 139, 139));
 		panel.setBackground(new Color(211, 211, 211));
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Pesquisa", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 139, 139)));
-		panel.setBounds(10, 212, 129, 38);
+		panel.setBounds(10, 202, 161, 59);
 		getFrame().getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID Pessoa");
 		lblNewLabel_1.setForeground(new Color(0, 128, 128));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(10, 17, 66, 14);
+		lblNewLabel_1.setBounds(10, 27, 55, 21);
 		panel.add(lblNewLabel_1);
 		
 		txtPesqPessoa = new JTextField();
 		txtPesqPessoa.setColumns(10);
-		txtPesqPessoa.setBounds(71, 17, 46, 14);
+		txtPesqPessoa.setBounds(66, 27, 25, 21);
 		panel.add(txtPesqPessoa);
+		
+		btnOk = new JButton("OK");
+
+		btnOk.setBounds(101, 18, 50, 30);
+		panel.add(btnOk);
+		btnOk.setHorizontalAlignment(SwingConstants.LEFT);
+		btnOk.setForeground(new Color(0, 128, 128));
+		btnOk.setFont(new Font("Times New Roman", Font.PLAIN, 10));
+		btnOk.setBackground(new Color(211, 211, 211));
 		
 		btnAtualizar = new JButton("Atualizar");
 		btnAtualizar.setHorizontalAlignment(SwingConstants.LEFT);
 		
 		btnAtualizar.setForeground(new Color(0, 128, 128));
-		btnAtualizar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnAtualizar.setBackground(new Color(169, 169, 169));
-		btnAtualizar.setBounds(173, 207, 82, 43);
+		btnAtualizar.setFont(new Font("Times New Roman", Font.PLAIN, 10));
+		btnAtualizar.setBackground(new Color(211, 211, 211));
+		btnAtualizar.setBounds(181, 212, 77, 38);
 		getFrame().getContentPane().add(btnAtualizar);
 		
 		btnApagar = new JButton("Apagar");
+		btnApagar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TMain.listPessoa.removePessoa(Integer.parseInt(txtPesqPessoa.getText()));
+			}
+		});
 		btnApagar.setForeground(new Color(0, 128, 128));
-		btnApagar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnApagar.setBackground(new Color(169, 169, 169));
-		btnApagar.setBounds(258, 207, 82, 43);
+		btnApagar.setFont(new Font("Times New Roman", Font.PLAIN, 10));
+		btnApagar.setBackground(new Color(211, 211, 211));
+		btnApagar.setBounds(264, 212, 77, 38);
 		getFrame().getContentPane().add(btnApagar);
 		
 		scrollPane = new JScrollPane();
@@ -132,14 +147,13 @@ public class TRelatorioPessoa {
 		btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TMain window = new TMain();
-				window.frame.setVisible(true);
+				frame.dispose();
 			}
 		});
 		btnVoltar.setForeground(new Color(0, 128, 128));
-		btnVoltar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		btnVoltar.setBackground(new Color(169, 169, 169));
-		btnVoltar.setBounds(342, 208, 82, 43);
+		btnVoltar.setFont(new Font("Times New Roman", Font.PLAIN, 10));
+		btnVoltar.setBackground(new Color(211, 211, 211));
+		btnVoltar.setBounds(345, 212, 79, 38);
 		frame.getContentPane().add(btnVoltar);
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		
@@ -155,9 +169,22 @@ public class TRelatorioPessoa {
 		}; 
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				((DefaultTableModel) table.getModel()).setRowCount(0);
-				
+				for(Pessoa pessoa : TMain.listPessoa.pessoasList) {
+					model.addRow(new Object[]{
+							pessoa.getId(),
+							pessoa.getNome(),
+							pessoa.getIdade(),
+							pessoa.getCpf(),
+							pessoa.getTelefone(),
+							pessoa.getEmail()});
+					
+				}; 
+			}});
+		
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				((DefaultTableModel) table.getModel()).setRowCount(0);				
 				for(Pessoa pessoa : TMain.listPessoa.pessoasList) {
 					if (Integer.parseInt(txtPesqPessoa.getText())==pessoa.getId()) {
 						model.addRow(new Object[]{
@@ -167,13 +194,11 @@ public class TRelatorioPessoa {
 								pessoa.getCpf(),
 								pessoa.getTelefone(),
 								pessoa.getEmail()});
-
-				
-			}}}
-				
-			
+			}}
+			}
 		});
 	}
+	
 
 	public JFrame getFrame() {
 		return frame;

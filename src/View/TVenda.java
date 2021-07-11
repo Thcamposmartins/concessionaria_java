@@ -11,6 +11,12 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import javax.swing.border.TitledBorder;
+
+import Model.Venda;
+import Model.Veiculo;
+import Controller.VeiculoController;
+
+
 import javax.swing.border.EtchedBorder;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
@@ -70,13 +76,13 @@ public class TVenda {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblVendas = new JLabel("Vender");
+		JLabel lblVendas = new JLabel("Vender Ve\u00EDculo");
 		lblVendas.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblVendas.setBackground(SystemColor.controlHighlight);
 		lblVendas.setVerticalAlignment(SwingConstants.BOTTOM);
 		lblVendas.setForeground(new Color(0, 139, 139));
 		lblVendas.setFont(new Font("Yu Gothic", Font.PLAIN, 24));
-		lblVendas.setBounds(10, 257, 100, 38);
+		lblVendas.setBounds(10, 254, 179, 38);
 		frame.getContentPane().add(lblVendas);
 		
 		JPanel venda = new JPanel();
@@ -168,6 +174,17 @@ public class TVenda {
 		JButton btnSalvar = new JButton("Vender");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Venda venda = new Venda();
+				
+				venda.setCategoria(textCategoria.getText());
+				venda.setCor(textCor.getText());
+				venda.setId(Integer.parseInt(textID.getText()));
+				venda.setVeiculo(textVeiculo.getText());
+				venda.setPreco(Double.parseDouble(textPreco.getText()));
+				TMain.listVenda.addVendas(venda);
+				
+				VeiculoController veiculo = new VeiculoController();
+				veiculo.removeVeiculo(Integer.parseInt(textID.getText()));
 			}
 		});
 		btnSalvar.setForeground(new Color(0, 139, 139));
@@ -177,6 +194,11 @@ public class TVenda {
 		frame.getContentPane().add(btnSalvar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		btnCancelar.setForeground(new Color(0, 139, 139));
 		btnCancelar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnCancelar.setBackground(new Color(169, 169, 169));
@@ -184,7 +206,7 @@ public class TVenda {
 		frame.getContentPane().add(btnCancelar);
 		
 		table = new JTable();
-		table.setBounds(10, 45, 416, 202);
+		table.setBounds(10, 45, 416, 195);
 		frame.getContentPane().add(table);
 		
 		JLabel lblEstoque = new JLabel("Estoque");
@@ -195,5 +217,13 @@ public class TVenda {
 		lblEstoque.setAlignmentX(0.5f);
 		lblEstoque.setBounds(10, 10, 100, 38);
 		frame.getContentPane().add(lblEstoque);
+	}
+	
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
 	}
 }

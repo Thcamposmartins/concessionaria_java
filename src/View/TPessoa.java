@@ -203,9 +203,7 @@ public class TPessoa {
 		btnCancelarPess.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				TMain window = new TMain();
-				window.frame.setVisible(true);	
-				
+				frame.dispose();
 			}
 		});
 		btnCancelarPess.setForeground(new Color(0, 139, 139));
