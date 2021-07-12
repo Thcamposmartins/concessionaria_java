@@ -8,10 +8,12 @@ import Model.Veiculo;
 public class PessoasController {
 	
 	public ArrayList<Pessoa> pessoasList;
+	public ArrayList<Pessoa> pessoasEcluidas;
 
 	public PessoasController() {
 		
-		pessoasList = new ArrayList<Pessoa>();		
+		pessoasList = new ArrayList<Pessoa>();
+		pessoasEcluidas = new ArrayList<Pessoa>();
 	}	
 
 	    public ArrayList<Pessoa> getClienteList() {
@@ -30,6 +32,7 @@ public class PessoasController {
 			for(Pessoa p : pessoasList ) {
 				if(p.getId()==ID) {
 					pessoasList.remove(p);
+					pessoasEcluidas.add(p);
 				}			
 			}		
 		}

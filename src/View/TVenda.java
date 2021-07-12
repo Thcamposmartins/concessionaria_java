@@ -95,7 +95,7 @@ public class TVenda {
 		JPanel venda = new JPanel();
 		venda.setLayout(null);
 		venda.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Dados Cliente", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 139, 139)));
-		venda.setBackground(SystemColor.controlHighlight);
+		venda.setBackground(new Color(211, 211, 211));
 		venda.setBounds(10, 317, 416, 96);
 		frame.getContentPane().add(venda);
 		
@@ -185,8 +185,8 @@ public class TVenda {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(SystemColor.controlHighlight);
-		frame.setBounds(100, 100, 450, 517);
+		frame.getContentPane().setBackground(new Color(211, 211, 211));
+		frame.setBounds(100, 100, 450, 520);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -202,7 +202,7 @@ public class TVenda {
 		JPanel venda = new JPanel();
 		venda.setLayout(null);
 		venda.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Dados Veiculo", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 139, 139)));
-		venda.setBackground(SystemColor.controlHighlight);
+		venda.setBackground(new Color(211, 211, 211));
 		venda.setBounds(10, 210, 416, 96);
 		frame.getContentPane().add(venda);
 		
