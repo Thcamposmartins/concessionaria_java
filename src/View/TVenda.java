@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 import Model.Venda;
 import Model.Pessoa;
@@ -330,6 +331,8 @@ public class TVenda {
 				txtNomeP.setText("");
 				txtCPFP.setText("");
 				txtEmailP.setText("");
+				txtTelP.setText("");
+				showMessageDialog(null, "Venda cadastrada com sucesso !");
 			}
 			
 		});

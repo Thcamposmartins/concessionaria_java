@@ -119,18 +119,18 @@ public class TRelatorioVenda {
 		panel_1.setForeground(new Color(0, 139, 139));
 		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Pesquisa", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 139, 139)));
 		panel_1.setBackground(new Color(211, 211, 211));
-		panel_1.setBounds(10, 416, 166, 56);
+		panel_1.setBounds(10, 416, 222, 56);
 		panel.add(panel_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("ID Pessoa");
+		JLabel lblNewLabel_1 = new JLabel("Buscar por ID Cliente");
 		lblNewLabel_1.setForeground(new Color(0, 128, 128));
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(10, 27, 55, 21);
+		lblNewLabel_1.setBounds(10, 22, 120, 21);
 		panel_1.add(lblNewLabel_1);
 		
 		txtIdRel = new JTextField();
 		txtIdRel.setColumns(10);
-		txtIdRel.setBounds(66, 22, 25, 21);
+		txtIdRel.setBounds(128, 22, 25, 21);
 		panel_1.add(txtIdRel);
 		
 		JButton btnOk = new JButton("OK");
@@ -156,7 +156,7 @@ public class TRelatorioVenda {
 		btnOk.setForeground(new Color(0, 128, 128));
 		btnOk.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		btnOk.setBackground(new Color(211, 211, 211));
-		btnOk.setBounds(101, 18, 50, 30);
+		btnOk.setBounds(163, 18, 50, 30);
 		panel_1.add(btnOk);
 		
 		JButton btnVoltar = new JButton("Voltar");
