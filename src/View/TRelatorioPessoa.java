@@ -11,19 +11,17 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JTextField;
-import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 import java.util.logging.Logger;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.PessoasController;
 import Model.Pessoa;
-import Model.Veiculo;
+
 
 public class TRelatorioPessoa {
 
@@ -31,8 +29,6 @@ public class TRelatorioPessoa {
 	private JTextField txtPesqPessoa;
 	private JButton btnAtualizar;
 	private JButton btnApagar;
-	private JTable table;
-	private JScrollPane scrollPane;
 	private JButton btnVoltar;
 	private JButton btnOk;
 	private JPanel venda;
@@ -48,10 +44,6 @@ public class TRelatorioPessoa {
 	private JTextField txtTelefoneRel;
 	private JButton btnEditar;
 	private JTextField txtIdadeR;
-	private JPanel panel_1;
-	private JPanel panel_2;
-	private JTable table_1;
-	private JScrollPane scrollPane_1;
 	private JPanel panel_3;
 	private JPanel panel_4;
 	private JTable table_2;
@@ -59,9 +51,6 @@ public class TRelatorioPessoa {
 	private JScrollPane scrollPane_2;
 	private JScrollPane scrollPane_3;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -75,17 +64,10 @@ public class TRelatorioPessoa {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public TRelatorioPessoa() {
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	
 		
 	private void initialize() {
 
@@ -209,14 +191,16 @@ public class TRelatorioPessoa {
 		txtTelRel.setBounds(239, 83, 75, 14);
 		venda.add(txtTelRel);
 		
+
 		txtCpfRel = new JLabel("CPF:");
 		txtCpfRel.setHorizontalTextPosition(SwingConstants.RIGHT);
 		txtCpfRel.setHorizontalAlignment(SwingConstants.LEFT);
 		txtCpfRel.setForeground(new Color(0, 139, 139));
 		txtCpfRel.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		txtCpfRel.setBounds(246, 55, 68, 14);
+		txtCpfRel.setInputVerifier(null);
 		venda.add(txtCpfRel);
-		
+
 		txtCPFR = new JTextField();
 		txtCPFR.setColumns(10);
 		txtCPFR.setBounds(311, 52, 95, 20);

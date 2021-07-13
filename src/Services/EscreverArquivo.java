@@ -18,7 +18,7 @@ public class EscreverArquivo {
 	public void EscreverArquivoPessoa(ArrayList<Pessoa> listaPessoas) throws IOException {
 		
 		try {
-		FileWriter fw = new FileWriter("pessoas.txt");	
+		FileWriter fw = new FileWriter("pessoasAtivas.txt");	
 		PrintWriter pw = new PrintWriter(fw);
 		
 			for (Pessoa  obj : listaPessoas) {	
@@ -44,7 +44,7 @@ public class EscreverArquivo {
 	public void EscreverArquivoVeiculos(ArrayList<Veiculo> listaveiculos) throws IOException {
 		
 		try {
-		FileWriter fw = new FileWriter("veiculos.txt");	
+		FileWriter fw = new FileWriter("veiculosEmEstoque.txt");	
 		PrintWriter pw = new PrintWriter(fw);
 		
 			for (Veiculo  obj : listaveiculos) {
@@ -69,7 +69,7 @@ public class EscreverArquivo {
 	public void EscreverArquivoVendas(ArrayList<Venda> listaVendas) throws IOException {
 		
 		try {
-		FileWriter fw = new FileWriter("vendas.txt");	
+		FileWriter fw = new FileWriter("vendasRealizadas.txt");	
 		PrintWriter pw = new PrintWriter(fw);
 		
 			for (Venda  obj : listaVendas) {

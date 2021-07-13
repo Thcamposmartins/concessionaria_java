@@ -8,6 +8,9 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
@@ -165,14 +168,19 @@ public class TPessoa {
 		btnSalvarPess.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Pessoa pessoa = new Pessoa();
-				
-				pessoa.setCpf(txtCPF.getText());
-				pessoa.setEmail(txtEmail.getText());
-				pessoa.setId(Integer.parseInt(txtID.getText()));
-				pessoa.setIdade(Integer.parseInt(txtIdade.getText()));
-				pessoa.setNome(txtNome.getText());
-				pessoa.setTelefone(txtTelefone.getText());
+				Pessoa pessoa = new Pessoa();				
+
+				if(txtCPF.getText().isEmpty() || txtEmail.getText().isEmpty() || txtID.getText().isEmpty() || txtIdade.getText().isEmpty() || txtNome.getText().isEmpty() || txtTelefone.getText().isEmpty()) {
+					showMessageDialog(null, "Favor preencher todos os campos !");
+				}
+				else {
+					pessoa.setCpf(txtCPF.getText());
+					pessoa.setEmail(txtEmail.getText());
+					pessoa.setId(Integer.parseInt(txtID.getText()));
+					pessoa.setIdade(Integer.parseInt(txtIdade.getText()));
+					pessoa.setNome(txtNome.getText());
+					pessoa.setTelefone(txtTelefone.getText());
+				}
 				TMain.listPessoa.addPessoas(pessoa);				
 			}
 		});

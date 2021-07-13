@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import Model.Pessoa;
+
 import Model.Veiculo;
 
 import javax.swing.border.EtchedBorder;
@@ -22,7 +22,7 @@ import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.util.logging.Logger;
 import java.awt.event.ActionEvent;
-import java.awt.SystemColor;
+
 
 public class TRelatorioVeiculo {
 
@@ -339,10 +339,7 @@ public class TRelatorioVeiculo {
 		btnEditar.setFont(new Font("Times New Roman", Font.PLAIN, 10));
 		btnEditar.setBackground(new Color(211, 211, 211));
 		btnEditar.setBounds(106, 427, 77, 43);
-		panel.add(btnEditar);
-		
-
-		
+		panel.add(btnEditar);		
 
 	}
 

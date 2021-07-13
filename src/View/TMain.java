@@ -5,8 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JPanel;
-import javax.swing.border.MatteBorder;
-import javax.swing.JTextField;
+
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -18,27 +17,22 @@ import javax.swing.border.TitledBorder;
 import Controller.PessoasController;
 import Controller.VeiculoController;
 import Controller.VendaController;
-import Model.Pessoa;
+
 import Services.EscreverArquivo;
 
 import javax.swing.border.EtchedBorder;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Logger;
+
 
 import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
+
 import javax.swing.border.SoftBevelBorder;
 
 public class TMain {
 	
 	JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,16 +46,12 @@ public class TMain {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public TMain() {		
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	static PessoasController listPessoa = new PessoasController();
 	static VeiculoController listVeiculo = new VeiculoController();
 	static VendaController listVenda = new VendaController();

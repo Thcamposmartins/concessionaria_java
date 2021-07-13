@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
@@ -16,6 +19,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -155,13 +160,18 @@ public class TVeiculo {
 		JButton btnSalvaVeic = new JButton("Salvar");
 		btnSalvaVeic.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Veiculo veiculo = new Veiculo();
+				Veiculo veiculo = new Veiculo();					
 				
-				veiculo.setCategoria(txtCatVei.getText());
-				veiculo.setCor(txtCorVeic.getText());
-				veiculo.setID(Integer.parseInt(txtIDVeic.getText()));
-				veiculo.setNome(txtNomeVei.getText());
-				veiculo.setPreco(Double.parseDouble(txtValorVeic.getText()));
+				if(txtCatVei.getText().isEmpty() || txtCorVeic.getText().isEmpty() || txtIDVeic.getText().isEmpty() || txtNomeVei.getText().isEmpty() || txtValorVeic.getText().isEmpty()) {
+					showMessageDialog(null, "Favor preencher todos os campos !");
+					}
+				else {
+					veiculo.setCategoria(txtCatVei.getText());
+					veiculo.setCor(txtCorVeic.getText());
+					veiculo.setID(Integer.parseInt(txtIDVeic.getText()));
+					veiculo.setNome(txtNomeVei.getText());
+					veiculo.setPreco(Double.parseDouble(txtValorVeic.getText()));
+				}
 				TMain.listVeiculo.addVeiculo(veiculo);
 			}
 		});
