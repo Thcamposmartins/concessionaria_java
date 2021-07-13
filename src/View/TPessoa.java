@@ -108,7 +108,7 @@ public class TPessoa {
 		JLabel lblNewLabel_1_2 = new JLabel("Idade");
 		lblNewLabel_1_2.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2.setBounds(10, 64, 46, 14);
+		lblNewLabel_1_2.setBounds(10, 67, 46, 14);
 		funcionario.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("E-mail");
@@ -140,7 +140,7 @@ public class TPessoa {
 		txtNome.setColumns(10);
 		
 		txtIdade = new JTextField();
-		txtIdade.setBounds(46, 61, 46, 20);
+		txtIdade.setBounds(46, 64, 46, 20);
 		funcionario.add(txtIdade);
 		txtIdade.setColumns(10);
 		
@@ -158,28 +158,6 @@ public class TPessoa {
 		txtTelefone.setBounds(280, 89, 113, 20);
 		funcionario.add(txtTelefone);
 		txtTelefone.setColumns(10);
-		
-		JLabel lblNewLabel_1_2_1 = new JLabel("Funcionario");
-		lblNewLabel_1_2_1.setForeground(new Color(0, 139, 139));
-		lblNewLabel_1_2_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2_1.setBounds(10, 89, 70, 14);
-		funcionario.add(lblNewLabel_1_2_1);
-		
-		JRadioButton btCliente = new JRadioButton("");
-		btCliente.setBackground(new Color(211, 211, 211));
-		btCliente.setBounds(158, 87, 21, 23);
-		funcionario.add(btCliente);
-		
-		JLabel lblNewLabel_1_2_1_1 = new JLabel("Cliente");
-		lblNewLabel_1_2_1_1.setForeground(new Color(0, 139, 139));
-		lblNewLabel_1_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2_1_1.setBounds(116, 92, 70, 14);
-		funcionario.add(lblNewLabel_1_2_1_1);
-		
-		JRadioButton btFuncionario = new JRadioButton("");
-		btFuncionario.setBackground(new Color(211, 211, 211));
-		btFuncionario.setBounds(74, 85, 21, 23);
-		funcionario.add(btFuncionario);
 		
 		JButton btnSalvarPess = new JButton("Salvar");
 		btnSalvarPess.setFont(new Font("Times New Roman", Font.PLAIN, 12));
@@ -224,8 +202,6 @@ public class TPessoa {
 				txtID.setText("");
 				txtIdade.setText("");
 				txtTelefone.setText("");
-				btCliente.setAutoscrolls(false);
-				btFuncionario.setAutoscrolls(false);
 			}
 		});
 		btnNovoPess.setForeground(new Color(0, 139, 139));

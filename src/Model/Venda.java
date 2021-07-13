@@ -7,6 +7,7 @@ public class Venda {
     private String cor;
     private String categoria;
     private Double preco;
+    private int idComprador;
 	private String nomeComprador;
 	private String cpfComprador;
 	private String emailComprador;	
@@ -94,5 +95,13 @@ public String getTelefoneComprador() {
 
 public void setTelefoneComprador(String telefoneComprador) {
 	this.telefoneComprador = telefoneComprador;
+}
+
+public int getIdComprador() {
+	return idComprador;
+}
+
+public void setIdComprador(int idComprador) {
+	this.idComprador = idComprador;
 }
 }

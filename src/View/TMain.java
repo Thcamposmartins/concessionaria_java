@@ -150,7 +150,7 @@ public class TMain {
 			}
 		});
 		btnNewVeiculoRel.setForeground(new Color(0, 128, 128));
-		btnNewVeiculoRel.setBounds(10, 82, 89, 23);
+		btnNewVeiculoRel.setBounds(10, 57, 89, 23);
 		panel_2_2.add(btnNewVeiculoRel);
 		
 		JButton btnNewPessoaRel = new JButton("Pessoas");
@@ -161,8 +161,19 @@ public class TMain {
 			}
 		});
 		btnNewPessoaRel.setForeground(new Color(0, 128, 128));
-		btnNewPessoaRel.setBounds(10, 36, 89, 23);
+		btnNewPessoaRel.setBounds(10, 23, 89, 23);
 		panel_2_2.add(btnNewPessoaRel);
+		
+		JButton btnVendas = new JButton("Vendas");
+		btnVendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TRelatorioVenda window = new TRelatorioVenda();
+				window.getFrame().setVisible(true);
+			}
+		});
+		btnVendas.setForeground(new Color(0, 128, 128));
+		btnVendas.setBounds(10, 91, 89, 23);
+		panel_2_2.add(btnVendas);
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.addActionListener(new ActionListener() {

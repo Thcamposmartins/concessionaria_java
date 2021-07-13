@@ -38,16 +38,16 @@ public class TRelatorioPessoa {
 	private JPanel venda;
 	private JLabel txtNomeRel;
 	private JLabel txtEmailRel;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtNomeR;
+	private JTextField txtEmailR;
 	private JLabel txtTelRel;
 	private JLabel txtCpfRel;
-	private JTextField textField_2;
+	private JTextField txtCPFR;
 	private JLabel lblNewLabel;
 	private JTextField txtIdRel;
 	private JTextField txtTelefoneRel;
 	private JButton btnEditar;
-	private JTextField textField_5;
+	private JTextField txtIdadeR;
 	private JPanel panel_1;
 	private JPanel panel_2;
 	private JTable table_1;
@@ -191,15 +191,15 @@ public class TRelatorioPessoa {
 		txtEmailRel.setBounds(10, 82, 46, 14);
 		venda.add(txtEmailRel);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(56, 21, 184, 20);
-		venda.add(textField);
+		txtNomeR = new JTextField();
+		txtNomeR.setColumns(10);
+		txtNomeR.setBounds(56, 21, 184, 20);
+		venda.add(txtNomeR);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(54, 79, 125, 20);
-		venda.add(textField_1);
+		txtEmailR = new JTextField();
+		txtEmailR.setColumns(10);
+		txtEmailR.setBounds(54, 79, 125, 20);
+		venda.add(txtEmailR);
 		
 		txtTelRel = new JLabel("Telefone:");
 		txtTelRel.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -217,10 +217,10 @@ public class TRelatorioPessoa {
 		txtCpfRel.setBounds(246, 55, 68, 14);
 		venda.add(txtCpfRel);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(311, 52, 95, 20);
-		venda.add(textField_2);
+		txtCPFR = new JTextField();
+		txtCPFR.setColumns(10);
+		txtCPFR.setBounds(311, 52, 95, 20);
+		venda.add(txtCPFR);
 		
 		lblNewLabel = new JLabel("ID:");
 		lblNewLabel.setForeground(new Color(0, 139, 139));
@@ -239,10 +239,10 @@ public class TRelatorioPessoa {
 		txtTelefoneRel.setBounds(311, 80, 95, 20);
 		venda.add(txtTelefoneRel);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(55, 49, 28, 20);
-		venda.add(textField_5);
+		txtIdadeR = new JTextField();
+		txtIdadeR.setColumns(10);
+		txtIdadeR.setBounds(55, 49, 28, 20);
+		venda.add(txtIdadeR);
 		
 		JLabel txtIdadeRel = new JLabel("Idade: ");
 		txtIdadeRel.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -257,13 +257,18 @@ public class TRelatorioPessoa {
 			public void actionPerformed(ActionEvent e) {
 				for(Pessoa pessoa : TMain.listPessoa.pessoasList) {
 					if (Integer.parseInt(txtPesqPessoa.getText())==pessoa.getId()) {
-								pessoa.setNome(txtNomeRel.getText());
-								pessoa.setIdade(Integer.parseInt(txtIdadeRel.getText()));
-								pessoa.setCpf(txtCpfRel.getText());
+								pessoa.setNome(txtNomeR.getText());
+								pessoa.setIdade(Integer.parseInt(txtIdadeR.getText()));
+								pessoa.setCpf(txtCPFR.getText());
 								pessoa.setTelefone(txtTelefoneRel.getText());
-								pessoa.setEmail(txtEmailRel.getText());
+								pessoa.setEmail(txtEmailR.getText());
 			}}
-			}
+				txtNomeR.setText("");
+				txtIdadeR.setText("");
+				txtCPFR.setText("");
+				txtTelefoneRel.setText("");
+				txtEmailR.setText("");
+				}
 		});
 		btnEditar.setForeground(new Color(0, 128, 128));
 		btnEditar.setFont(new Font("Times New Roman", Font.PLAIN, 10));
@@ -279,7 +284,7 @@ public class TRelatorioPessoa {
 		panel_3.setLayout(null);
 		
 		scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(10, 11, 394, 85);
+		scrollPane_2.setBounds(10, 22, 394, 74);
 		panel_3.add(scrollPane_2);
 		
 		table_2 = new JTable();
@@ -293,7 +298,7 @@ public class TRelatorioPessoa {
 		panel_4.setLayout(null);
 		
 		scrollPane_3 = new JScrollPane();
-		scrollPane_3.setBounds(10, 11, 394, 85);
+		scrollPane_3.setBounds(10, 21, 394, 75);
 		panel_4.add(scrollPane_3);
 		
 		table_3 = new JTable();
@@ -334,7 +339,7 @@ public class TRelatorioPessoa {
 		}; 
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				((DefaultTableModel) table_2.getModel()).setRowCount(0);	
+				((DefaultTableModel) table_3.getModel()).setRowCount(0);	
 				for(Pessoa pessoa : TMain.listPessoa.pessoasEcluidas) {
 					model1.addRow(new Object[]{
 							pessoa.getId(),

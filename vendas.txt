@@ -1,0 +1,30 @@
+-------------------------------------------------
+DADOS DO VEICULO:
+ID: 1
+Veiculo: Mercedes
+Cor: Vermelho
+Categoria: Conversivel
+Valor: 2.0
+
+DADOS DO COMPRADOR:
+ID: 1
+Nome: Thais
+CPF: 111111111
+E-mail: thth@teste
+Telefone: 333333333
+-------------------------------------------------
+-------------------------------------------------
+DADOS DO VEICULO:
+ID: 2
+Veiculo: Volvo
+Cor: Preto
+Categoria: Hate
+Valor: 1.0
+
+DADOS DO COMPRADOR:
+ID: 2
+Nome: William
+CPF: 111111111
+E-mail: thth@teste
+Telefone: 333333333
+-------------------------------------------------

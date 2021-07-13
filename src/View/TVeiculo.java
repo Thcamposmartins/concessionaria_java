@@ -125,28 +125,6 @@ public class TVeiculo {
 		txtCorVeic.setBounds(280, 69, 113, 20);
 		funcionario.add(txtCorVeic);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("Novo");
-		lblNewLabel_1_2_1.setForeground(new Color(0, 139, 139));
-		lblNewLabel_1_2_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2_1.setBounds(10, 101, 33, 14);
-		funcionario.add(lblNewLabel_1_2_1);
-		
-		JRadioButton btUsado = new JRadioButton("");
-		btUsado.setBackground(new Color(211, 211, 211));
-		btUsado.setBounds(46, 122, 21, 23);
-		funcionario.add(btUsado);
-		
-		JLabel lblNewLabel_1_2_1_1 = new JLabel("Usado");
-		lblNewLabel_1_2_1_1.setForeground(new Color(0, 139, 139));
-		lblNewLabel_1_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2_1_1.setBounds(10, 127, 70, 14);
-		funcionario.add(lblNewLabel_1_2_1_1);
-		
-		JRadioButton btNovo = new JRadioButton("");
-		btNovo.setBackground(new Color(211, 211, 211));
-		btNovo.setBounds(45, 96, 21, 23);
-		funcionario.add(btNovo);
-		
 		txtCatVei = new JTextField();
 		txtCatVei.setColumns(10);
 		txtCatVei.setBounds(280, 94, 113, 20);
@@ -166,8 +144,6 @@ public class TVeiculo {
 				txtCorVeic.setText("");
 				txtCatVei.setText("");
 				txtValorVeic.setText("");
-				btNovo.setAutoscrolls(false);
-				btUsado.setAutoscrolls(false);
 			}
 		});
 		btnNovoVeic.setForeground(new Color(0, 139, 139));

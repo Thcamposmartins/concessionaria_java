@@ -190,7 +190,7 @@ public class TVenda {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblVendas = new JLabel("Vender Ve\u00EDculo");
+		JLabel lblVendas = new JLabel("Vender Veiculo");
 		lblVendas.setAlignmentX(Component.CENTER_ALIGNMENT);
 		lblVendas.setBackground(SystemColor.controlHighlight);
 		lblVendas.setVerticalAlignment(SwingConstants.BOTTOM);
@@ -309,19 +309,29 @@ public class TVenda {
 				venda.setId(Integer.parseInt(textID.getText()));
 				venda.setVeiculo(txtVendaVeic.getText());
 				venda.setPreco(Double.parseDouble(txtVendaValor.getText()));
+				venda.setIdComprador(Integer.parseInt(txtIDP.getText()));
 				venda.setNomeComprador(txtNomeP.getText());
 				venda.setCpfComprador(txtCPFP.getText());
 				venda.setEmailComprador(txtEmailP.getText());
-				venda.setTelefoneComprador(txtTelP.getText());
-				TMain.listVenda.addVendas(venda);
-			
+				venda.setTelefoneComprador(txtTelP.getText());				
 				try{
+					TMain.listVenda.addVendas(venda);
 					TMain.listVeiculo.removeVeiculo(Integer.parseInt(textID.getText()));
 					}
 				catch(Exception ex) {
 					Logger.getLogger("Error"+ ex);
 				}
+				txtVendaCat.setText("");
+				txtVendaCor.setText("");
+				textID.setText("");
+				txtVendaVeic.setText("");
+				txtVendaValor.setText("");
+				txtIDP.setText("");
+				txtNomeP.setText("");
+				txtCPFP.setText("");
+				txtEmailP.setText("");
 			}
+			
 		});
 		btnSalvar.setForeground(new Color(0, 139, 139));
 		btnSalvar.setFont(new Font("Times New Roman", Font.PLAIN, 12));
