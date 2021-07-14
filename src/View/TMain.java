@@ -5,8 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JPanel;
-import javax.swing.border.MatteBorder;
-import javax.swing.JTextField;
+
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -18,27 +17,22 @@ import javax.swing.border.TitledBorder;
 import Controller.PessoasController;
 import Controller.VeiculoController;
 import Controller.VendaController;
-import Model.Pessoa;
+
 import Services.EscreverArquivo;
 
 import javax.swing.border.EtchedBorder;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Logger;
+
 
 import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
+
 import javax.swing.border.SoftBevelBorder;
 
 public class TMain {
 	
 	JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,16 +46,12 @@ public class TMain {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public TMain() {		
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	static PessoasController listPessoa = new PessoasController();
 	static VeiculoController listVeiculo = new VeiculoController();
 	static VendaController listVenda = new VendaController();
@@ -150,7 +140,7 @@ public class TMain {
 			}
 		});
 		btnNewVeiculoRel.setForeground(new Color(0, 128, 128));
-		btnNewVeiculoRel.setBounds(10, 82, 89, 23);
+		btnNewVeiculoRel.setBounds(10, 57, 89, 23);
 		panel_2_2.add(btnNewVeiculoRel);
 		
 		JButton btnNewPessoaRel = new JButton("Pessoas");
@@ -161,8 +151,19 @@ public class TMain {
 			}
 		});
 		btnNewPessoaRel.setForeground(new Color(0, 128, 128));
-		btnNewPessoaRel.setBounds(10, 36, 89, 23);
+		btnNewPessoaRel.setBounds(10, 23, 89, 23);
 		panel_2_2.add(btnNewPessoaRel);
+		
+		JButton btnVendas = new JButton("Vendas");
+		btnVendas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TRelatorioVenda window = new TRelatorioVenda();
+				window.getFrame().setVisible(true);
+			}
+		});
+		btnVendas.setForeground(new Color(0, 128, 128));
+		btnVendas.setBounds(10, 91, 89, 23);
+		panel_2_2.add(btnVendas);
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.addActionListener(new ActionListener() {
@@ -171,7 +172,6 @@ public class TMain {
 				gravar.EscreverArquivoPessoa(listPessoa.pessoasList);
 				gravar.EscreverArquivoVeiculos(listVeiculo.veiculosList);
 				gravar.EscreverArquivoVendas(listVenda.vendasList);
-
 				}
 				catch(IOException ex){
 				}

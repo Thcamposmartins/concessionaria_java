@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
@@ -16,6 +19,8 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -125,28 +130,6 @@ public class TVeiculo {
 		txtCorVeic.setBounds(280, 69, 113, 20);
 		funcionario.add(txtCorVeic);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("Novo");
-		lblNewLabel_1_2_1.setForeground(new Color(0, 139, 139));
-		lblNewLabel_1_2_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2_1.setBounds(10, 101, 33, 14);
-		funcionario.add(lblNewLabel_1_2_1);
-		
-		JRadioButton btUsado = new JRadioButton("");
-		btUsado.setBackground(new Color(211, 211, 211));
-		btUsado.setBounds(46, 122, 21, 23);
-		funcionario.add(btUsado);
-		
-		JLabel lblNewLabel_1_2_1_1 = new JLabel("Usado");
-		lblNewLabel_1_2_1_1.setForeground(new Color(0, 139, 139));
-		lblNewLabel_1_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2_1_1.setBounds(10, 127, 70, 14);
-		funcionario.add(lblNewLabel_1_2_1_1);
-		
-		JRadioButton btNovo = new JRadioButton("");
-		btNovo.setBackground(new Color(211, 211, 211));
-		btNovo.setBounds(45, 96, 21, 23);
-		funcionario.add(btNovo);
-		
 		txtCatVei = new JTextField();
 		txtCatVei.setColumns(10);
 		txtCatVei.setBounds(280, 94, 113, 20);
@@ -166,8 +149,6 @@ public class TVeiculo {
 				txtCorVeic.setText("");
 				txtCatVei.setText("");
 				txtValorVeic.setText("");
-				btNovo.setAutoscrolls(false);
-				btUsado.setAutoscrolls(false);
 			}
 		});
 		btnNovoVeic.setForeground(new Color(0, 139, 139));
@@ -179,13 +160,18 @@ public class TVeiculo {
 		JButton btnSalvaVeic = new JButton("Salvar");
 		btnSalvaVeic.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Veiculo veiculo = new Veiculo();
+				Veiculo veiculo = new Veiculo();					
 				
-				veiculo.setCategoria(txtCatVei.getText());
-				veiculo.setCor(txtCorVeic.getText());
-				veiculo.setID(Integer.parseInt(txtIDVeic.getText()));
-				veiculo.setNome(txtNomeVei.getText());
-				veiculo.setPreco(Double.parseDouble(txtValorVeic.getText()));
+				if(txtCatVei.getText().isEmpty() || txtCorVeic.getText().isEmpty() || txtIDVeic.getText().isEmpty() || txtNomeVei.getText().isEmpty() || txtValorVeic.getText().isEmpty()) {
+					showMessageDialog(null, "Favor preencher todos os campos !");
+					}
+				else {
+					veiculo.setCategoria(txtCatVei.getText());
+					veiculo.setCor(txtCorVeic.getText());
+					veiculo.setID(Integer.parseInt(txtIDVeic.getText()));
+					veiculo.setNome(txtNomeVei.getText());
+					veiculo.setPreco(Double.parseDouble(txtValorVeic.getText()));
+				}
 				TMain.listVeiculo.addVeiculo(veiculo);
 			}
 		});

@@ -8,9 +8,15 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
+import javax.swing.JFormattedTextField;
 
 import Controller.PessoasController;
 import Model.Pessoa;
@@ -21,6 +27,7 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
@@ -58,17 +65,16 @@ public class TPessoa {
 
 	/**
 	 * Create the application.
+	 * @throws Exception 
 	 */
-	public TPessoa() {		
+	public TPessoa(){		
 		initialize();	
 		
 		//setLocationRelativeTo(null);
 	}
-	PessoasController listPessoas = new PessoasController();
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+
+	
+	private void initialize(){
 		setFrame(new JFrame());
 		getFrame().getContentPane().setForeground(new Color(47, 79, 79));
 		getFrame().getContentPane().setBackground(new Color(211, 211, 211));
@@ -105,7 +111,7 @@ public class TPessoa {
 		JLabel lblNewLabel_1_2 = new JLabel("Idade");
 		lblNewLabel_1_2.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_2.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2.setBounds(10, 64, 46, 14);
+		lblNewLabel_1_2.setBounds(10, 67, 46, 14);
 		funcionario.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("E-mail");
@@ -114,12 +120,12 @@ public class TPessoa {
 		lblNewLabel_1_3.setBounds(10, 120, 46, 14);
 		funcionario.add(lblNewLabel_1_3);
 		
-		JLabel lblNewLabel_1_4 = new JLabel("CPF");
+		JLabel lblNewLabel_1_4 = new JLabel("CPF");		
 		lblNewLabel_1_4.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_4.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblNewLabel_1_4.setBounds(242, 64, 46, 14);
-		funcionario.add(lblNewLabel_1_4);
-		
+		funcionario.add(lblNewLabel_1_4);		
+				
 		JLabel lblNewLabel_1_5 = new JLabel("Telefone");
 		lblNewLabel_1_5.setForeground(new Color(0, 139, 139));
 		lblNewLabel_1_5.setFont(new Font("Times New Roman", Font.BOLD, 11));
@@ -137,7 +143,7 @@ public class TPessoa {
 		txtNome.setColumns(10);
 		
 		txtIdade = new JTextField();
-		txtIdade.setBounds(46, 61, 46, 20);
+		txtIdade.setBounds(46, 64, 46, 20);
 		funcionario.add(txtIdade);
 		txtIdade.setColumns(10);
 		
@@ -156,42 +162,25 @@ public class TPessoa {
 		funcionario.add(txtTelefone);
 		txtTelefone.setColumns(10);
 		
-		JLabel lblNewLabel_1_2_1 = new JLabel("Funcionario");
-		lblNewLabel_1_2_1.setForeground(new Color(0, 139, 139));
-		lblNewLabel_1_2_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2_1.setBounds(10, 89, 70, 14);
-		funcionario.add(lblNewLabel_1_2_1);
-		
-		JRadioButton btCliente = new JRadioButton("");
-		btCliente.setBackground(new Color(211, 211, 211));
-		btCliente.setBounds(158, 87, 21, 23);
-		funcionario.add(btCliente);
-		
-		JLabel lblNewLabel_1_2_1_1 = new JLabel("Cliente");
-		lblNewLabel_1_2_1_1.setForeground(new Color(0, 139, 139));
-		lblNewLabel_1_2_1_1.setFont(new Font("Times New Roman", Font.BOLD, 11));
-		lblNewLabel_1_2_1_1.setBounds(116, 92, 70, 14);
-		funcionario.add(lblNewLabel_1_2_1_1);
-		
-		JRadioButton btFuncionario = new JRadioButton("");
-		btFuncionario.setBackground(new Color(211, 211, 211));
-		btFuncionario.setBounds(74, 85, 21, 23);
-		funcionario.add(btFuncionario);
-		
 		JButton btnSalvarPess = new JButton("Salvar");
 		btnSalvarPess.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnSalvarPess.setForeground(new Color(0, 139, 139));
 		btnSalvarPess.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Pessoa pessoa = new Pessoa();
-				
-				pessoa.setCpf(txtCPF.getText());
-				pessoa.setEmail(txtEmail.getText());
-				pessoa.setId(Integer.parseInt(txtID.getText()));
-				pessoa.setIdade(Integer.parseInt(txtIdade.getText()));
-				pessoa.setNome(txtNome.getText());
-				pessoa.setTelefone(txtTelefone.getText());
+				Pessoa pessoa = new Pessoa();				
+
+				if(txtCPF.getText().isEmpty() || txtEmail.getText().isEmpty() || txtID.getText().isEmpty() || txtIdade.getText().isEmpty() || txtNome.getText().isEmpty() || txtTelefone.getText().isEmpty()) {
+					showMessageDialog(null, "Favor preencher todos os campos !");
+				}
+				else {
+					pessoa.setCpf(txtCPF.getText());
+					pessoa.setEmail(txtEmail.getText());
+					pessoa.setId(Integer.parseInt(txtID.getText()));
+					pessoa.setIdade(Integer.parseInt(txtIdade.getText()));
+					pessoa.setNome(txtNome.getText());
+					pessoa.setTelefone(txtTelefone.getText());
+				}
 				TMain.listPessoa.addPessoas(pessoa);				
 			}
 		});
@@ -221,8 +210,6 @@ public class TPessoa {
 				txtID.setText("");
 				txtIdade.setText("");
 				txtTelefone.setText("");
-				btCliente.setAutoscrolls(false);
-				btFuncionario.setAutoscrolls(false);
 			}
 		});
 		btnNovoPess.setForeground(new Color(0, 139, 139));
