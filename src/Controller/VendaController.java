@@ -24,15 +24,7 @@ public class VendaController {
 		public void addVendas(Venda listVenda) {
 			vendasList.add(listVenda);
 			
-		}
-		public void removeVenda(int id) {
-			for(Venda p : vendasList) {
-				if(p.getId()==id) {
-					vendasList.remove(p);
-				}			
-			}		
-		}
-		
+		}	
 		public void venderVeiculo(int id) {
 			
 		}

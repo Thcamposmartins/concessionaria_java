@@ -7,10 +7,12 @@ import Model.Veiculo;
 public class VeiculoController {
 	
 	public ArrayList<Veiculo> veiculosList;
+	public ArrayList<Veiculo> veiculosOff;
 
 	public VeiculoController() {
 		
-		veiculosList = new ArrayList<Veiculo>();		
+		veiculosList = new ArrayList<Veiculo>();	
+		veiculosOff = new ArrayList<Veiculo>();
 	}	
 
 	    public ArrayList<Veiculo> getVeiculoList() {
@@ -29,6 +31,7 @@ public class VeiculoController {
 			for(Veiculo v : veiculosList ) {
 				if(v.getID()==ID) {
 					veiculosList.remove(v);
+					veiculosOff.add(v);
 				}			
 			}		
 		}
