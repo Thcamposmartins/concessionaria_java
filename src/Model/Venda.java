@@ -7,6 +7,11 @@ public class Venda {
     private String cor;
     private String categoria;
     private Double preco;
+    private int idComprador;
+	private String nomeComprador;
+	private String cpfComprador;
+	private String emailComprador;	
+	private String telefoneComprador;
 
     public Venda() {
     	
@@ -59,4 +64,44 @@ public class Venda {
    public void setPreco(Double preco) {
 	   this.preco = preco;
    }
+
+public String getNomeComprador() {
+	return nomeComprador;
+}
+
+public void setNomeComprador(String nomeComprador) {
+	this.nomeComprador = nomeComprador;
+}
+
+public String getCpfComprador() {
+	return cpfComprador;
+}
+
+public void setCpfComprador(String cpfComprador) {
+	this.cpfComprador = cpfComprador;
+}
+
+public String getEmailComprador() {
+	return emailComprador;
+}
+
+public void setEmailComprador(String emailComprador) {
+	this.emailComprador = emailComprador;
+}
+
+public String getTelefoneComprador() {
+	return telefoneComprador;
+}
+
+public void setTelefoneComprador(String telefoneComprador) {
+	this.telefoneComprador = telefoneComprador;
+}
+
+public int getIdComprador() {
+	return idComprador;
+}
+
+public void setIdComprador(int idComprador) {
+	this.idComprador = idComprador;
+}
 }
