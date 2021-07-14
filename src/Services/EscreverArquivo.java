@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 import Model.Pessoa;
 import Model.Veiculo;
+import Model.Venda;
 
 public class EscreverArquivo {
 	
@@ -17,7 +18,7 @@ public class EscreverArquivo {
 	public void EscreverArquivoPessoa(ArrayList<Pessoa> listaPessoas) throws IOException {
 		
 		try {
-		FileWriter fw = new FileWriter("pessoas.txt");	
+		FileWriter fw = new FileWriter("pessoasAtivas.txt");	
 		PrintWriter pw = new PrintWriter(fw);
 		
 			for (Pessoa  obj : listaPessoas) {	
@@ -43,7 +44,7 @@ public class EscreverArquivo {
 	public void EscreverArquivoVeiculos(ArrayList<Veiculo> listaveiculos) throws IOException {
 		
 		try {
-		FileWriter fw = new FileWriter("veiculos.txt");	
+		FileWriter fw = new FileWriter("veiculosEmEstoque.txt");	
 		PrintWriter pw = new PrintWriter(fw);
 		
 			for (Veiculo  obj : listaveiculos) {
@@ -63,6 +64,38 @@ public class EscreverArquivo {
 		catch(IOException ex) {
 
 			Logger.getLogger("Veiculos");
+		};
+	}
+	public void EscreverArquivoVendas(ArrayList<Venda> listaVendas) throws IOException {
+		
+		try {
+		FileWriter fw = new FileWriter("vendasRealizadas.txt");	
+		PrintWriter pw = new PrintWriter(fw);
+		
+			for (Venda  obj : listaVendas) {
+				pw.println("-------------------------------------------------");
+				pw.println("DADOS DO VEICULO:");
+				pw.println("ID: " + obj.getId());	
+				pw.println("Veiculo: " + obj.getVeiculo());	
+				pw.println("Cor: " + obj.getCor());	
+				pw.println("Categoria: " + obj.getCategoria());	
+				pw.println("Valor: "+ obj.getPreco());	
+				pw.println("\nDADOS DO COMPRADOR:");
+				pw.println("ID: "+ obj.getId());
+				pw.println("Nome: "+obj.getNomeComprador());
+				pw.println("CPF: "+obj.getCpfComprador());
+				pw.println("E-mail: " + obj.getEmailComprador());
+				pw.println("Telefone: " + obj.getTelefoneComprador());				
+				pw.println("-------------------------------------------------");
+			}
+			pw.flush();
+			pw.close();
+			fw.close();
+		}
+		
+		catch(IOException ex) {
+
+			Logger.getLogger("Vendas");
 		};
 	}
 }
