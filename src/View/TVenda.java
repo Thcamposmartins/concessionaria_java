@@ -304,7 +304,14 @@ public class TVenda {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Venda venda = new Venda();
-				
+				if(txtVendaCat.getText().isEmpty()||txtVendaCor.getText().isEmpty()||
+						textID.getText().isEmpty()|| txtVendaVeic.getText().isEmpty()||
+						txtVendaValor.getText().isEmpty()||txtIDP.getText().isEmpty()||
+						txtNomeP.getText().isEmpty()||txtCPFP.getText().isEmpty()||
+						txtEmailP.getText().isEmpty()||txtTelP.getText().isEmpty()) {
+					showMessageDialog(null, "Favor clicar no botao carregar para finalizar a venda !");
+				}
+				else {				
 				venda.setCategoria(txtVendaCat.getText());
 				venda.setCor(txtVendaCor.getText());
 				venda.setId(Integer.parseInt(textID.getText()));
@@ -318,10 +325,12 @@ public class TVenda {
 				try{
 					TMain.listVenda.addVendas(venda);
 					TMain.listVeiculo.removeVeiculo(Integer.parseInt(textID.getText()));
+					showMessageDialog(null, "Venda cadastrada com sucesso !");
 					}
 				catch(Exception ex) {
 					Logger.getLogger("Error"+ ex);
-				}
+				}}
+
 				txtVendaCat.setText("");
 				txtVendaCor.setText("");
 				textID.setText("");
@@ -331,8 +340,7 @@ public class TVenda {
 				txtNomeP.setText("");
 				txtCPFP.setText("");
 				txtEmailP.setText("");
-				txtTelP.setText("");
-				showMessageDialog(null, "Venda cadastrada com sucesso !");
+				txtTelP.setText("");				
 			}
 			
 		});

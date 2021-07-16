@@ -139,7 +139,7 @@ public class TRelatorioVeiculo {
 		JButton btnAtualizar = new JButton("Atualizar");
 		btnAtualizar.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			((DefaultTableModel) table.getModel()).setRowCount(0);	
+			((DefaultTableModel) table_1.getModel()).setRowCount(0);	
 			DefaultTableModel model2 = (DefaultTableModel) table_1.getModel();
 			
 			for(Veiculo veiculo : TMain.listVeiculo.veiculosOff) {
