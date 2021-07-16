@@ -8,8 +8,8 @@ import Model.Veiculo;
 public class PessoasController {
 	
 	public ArrayList<Pessoa> pessoasList;
+  
 	public ArrayList<Pessoa> pessoasEcluidas;
-
 	public PessoasController() {
 		
 		pessoasList = new ArrayList<Pessoa>();

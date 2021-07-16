@@ -12,8 +12,9 @@ public class Pessoa extends Object{
 		
 	}
 	
-	public Pessoa(int id, String nome, String cpf, String email, String telefone) {
+	public Pessoa(int id, int idade, String nome, String cpf, String email, String telefone) {
 		this.setId(id);
+		this.setIdade(idade);
 		this.setNome(nome);
 		this.setCpf(cpf);
 		this.setEmail(email);
