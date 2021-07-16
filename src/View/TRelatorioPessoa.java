@@ -324,7 +324,8 @@ public class TRelatorioPessoa {
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				((DefaultTableModel) table_3.getModel()).setRowCount(0);	
-				for(Pessoa pessoa : TMain.listPessoa.pessoasExcluidas) {
+
+				for(Pessoa pessoa : TMain.listPessoa.pessoasEcluidas) {
 					model1.addRow(new Object[]{
 							pessoa.getId(),
 							pessoa.getNome(),
